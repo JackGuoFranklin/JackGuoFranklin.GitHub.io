@@ -3,18 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Category: git | JackGuoFranklin</title>
+  <title>reactNative开发环境搭建 | JackGuoFranklin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="开心度过每一天。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="JackGuoFranklin">
-<meta property="og:url" content="http://yoursite.com/categories/git/index.html">
+  <meta name="description" content="reactNative开发环境搭建 #(一) 搭建基本环境（必要） ##1.安装Homebrew 打开终端，运行以下语句（中间需要输入密码）进行安装： 1/usr/bin/ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/">
+<meta name="keywords" content="reactNative">
+<meta property="og:type" content="article">
+<meta property="og:title" content="reactNative开发环境搭建">
+<meta property="og:url" content="http://yoursite.com/2017/11/21/reactNative/reactNative开发环境搭建/index.html">
 <meta property="og:site_name" content="JackGuoFranklin">
-<meta property="og:description" content="开心度过每一天。">
+<meta property="og:description" content="reactNative开发环境搭建 #(一) 搭建基本环境（必要） ##1.安装Homebrew 打开终端，运行以下语句（中间需要输入密码）进行安装： 1/usr/bin/ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot; 可通过如下语句查看安装是否成">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-11-21T02:38:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JackGuoFranklin">
-<meta name="twitter:description" content="开心度过每一天。">
+<meta name="twitter:title" content="reactNative开发环境搭建">
+<meta name="twitter:description" content="reactNative开发环境搭建 #(一) 搭建基本环境（必要） ##1.安装Homebrew 打开终端，运行以下语句（中间需要输入密码）进行安装： 1/usr/bin/ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot; 可通过如下语句查看安装是否成">
   
     <link rel="alternate" href="/atom.xml" title="JackGuoFranklin" type="application/atom+xml">
   
@@ -67,39 +69,93 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/11/21/github/创建Git仓库osChina/" class="archive-article-date">
-  <time datetime="2017-11-21T04:12:07.000Z" itemprop="datePublished">Nov 21</time>
+        <section id="main"><article id="post-reactNative/reactNative开发环境搭建" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/21/reactNative/reactNative开发环境搭建/" class="article-date">
+  <time datetime="2017-11-20T23:58:47.000Z" itemprop="datePublished">2017-11-21</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/reactNative/">reactNative</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/21/github/创建Git仓库osChina/">创建Git仓库（git@oschina&amp;sourceTree）</a>
+    <h1 class="article-title" itemprop="name">
+      reactNative开发环境搭建
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>reactNative开发环境搭建</p>
+<p>#(一) 搭建基本环境（必要）</p>
+<p>##1.安装Homebrew</p>
+<p>打开终端，运行以下语句（中间需要输入密码）进行安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span><br></pre></td></tr></table></figure>
+<p>可通过如下语句查看安装是否成功以及安装的Homebrew版本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew -v</span><br></pre></td></tr></table></figure>
+<p>正常情况下均可安装成功，若出现网络问题安装失败，则运行如下语句清理后再重新安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)&quot;</span><br><span class="line">ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span><br></pre></td></tr></table></figure>
+<p>##2. 使用Homebrew来安装Node.js<br>使用brew安装node.js</p>
+<p>终端运行语句如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install node</span><br></pre></td></tr></table></figure>
+<p>查看安装是否成功以及安装的node.js版本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
+<p>##3. 安装React Native的命令行工具（react-native-cli）</p>
+<p>React Native的命令行工具用于执行创建、初始化、更新项目、运行打包服务（packager）等任务。</p>
+<p>终端运行语句如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g react-native-cli</span><br></pre></td></tr></table></figure>
+<p>若出现错误（可能由于权限不足），则实用以下语句进行安装：</p>
+<p>1<br>sudo npm install -g react-native-cli<br>由于国内网络问题，可以将npm仓库替换为国内镜像</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//将npm仓库替换为国内镜像：</span><br><span class="line">npm config set registry https://registry.npm.taobao.org --global</span><br><span class="line">npm config set disturl https://npm.taobao.org/dist --global</span><br></pre></td></tr></table></figure>
+<p>#(二) 推荐安装的工具</p>
+<p>##1. Watchman<br>Watchman是由Facebook提供的监视文件系统变更的工具。安装此工具可以提高开发时的性能（packager可以快速捕捉文件的变化从而实现实时刷新）。</p>
+<p>终端运行语句安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install watchman</span><br></pre></td></tr></table></figure>
+<p>查看安装是否成功以及安装的watchman版本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">watchman -v</span><br></pre></td></tr></table></figure>
+<p>##2. Flow<br>Flow是一个静态的JS类型检查工具，可方便找出代码中可能存在的类型错误。<br>译注：你在很多示例中看到的奇奇怪怪的冒号问号，以及方法参数中像类型一样的写法，都是属于这个flow工具的语法。这一语法并不属于ES标准，只是Facebook自家的代码规范。</p>
+<p>终端运行语句安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install flow</span><br></pre></td></tr></table></figure>
+<p>查看安装是否成功以及安装的flow版本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flow --version</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/21/reactNative/reactNative开发环境搭建/" data-id="cja94nh9b001c1r4imm3aaod8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/reactNative/">reactNative</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/11/21/hexo/hexo 问题集合/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          hexo 问题集合
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 </section>
         
