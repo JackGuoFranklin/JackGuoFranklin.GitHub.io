@@ -5,13 +5,14 @@
   
   <title>swift-SnapKit自动布局使用2 | JackGuoFranklin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1 保存约束 1234//保存约束的引用var topConstraint:Constraint? self.topConstraint = make.top.equalTo(self.view).offset(40).constraint 2 删除约束 12//移除约束self.topConstraint?.uninstall() 3 通过约束的引用来更新约束 updateOffset()  1">
+  <meta name="description" content="1 保存约束 1234//保存约束的引用var topConstraint:Constraint? self.topConstraint = make.top.equalTo(self.view).offset(40).constraint 2 删除约束 12//移除约束self.topConstraint?.unin">
 <meta name="keywords" content="swift,SnapKit">
 <meta property="og:type" content="article">
 <meta property="og:title" content="swift-SnapKit自动布局使用2">
 <meta property="og:url" content="http://yoursite.com/2017/11/21/swift/swift-SnapKit自动布局使用2/index.html">
 <meta property="og:site_name" content="JackGuoFranklin">
 <meta property="og:description" content="1 保存约束 1234//保存约束的引用var topConstraint:Constraint? self.topConstraint = make.top.equalTo(self.view).offset(40).constraint 2 删除约束 12//移除约束self.topConstraint?.uninstall() 3 通过约束的引用来更新约束 updateOffset()  1">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-11-21T04:12:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="swift-SnapKit自动布局使用2">
@@ -95,21 +96,21 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>1 保存约束</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//保存约束的引用</div><div class="line">var topConstraint:Constraint?</div><div class="line"> </div><div class="line">self.topConstraint = make.top.equalTo(self.view).offset(40).constraint</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//保存约束的引用</span><br><span class="line">var topConstraint:Constraint?</span><br><span class="line"> </span><br><span class="line">self.topConstraint = make.top.equalTo(self.view).offset(40).constraint</span><br></pre></td></tr></table></figure>
 <p>2 删除约束</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//移除约束</div><div class="line">self.topConstraint?.uninstall()</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//移除约束</span><br><span class="line">self.topConstraint?.uninstall()</span><br></pre></td></tr></table></figure>
 <p>3 通过约束的引用来更新约束 updateOffset() </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//更新修改约束</div><div class="line">self.topConstraint?.updateOffset(60)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//更新修改约束</span><br><span class="line">self.topConstraint?.updateOffset(60)</span><br></pre></td></tr></table></figure>
 <p>4 使用snp_updateConstraints更新约束</p>
 <p>我们还可以用 snp_updateConstraints 方法来代替 snp_makeConstraints 进行约束的更新，这个更新操作通常放在 UIViewController 的 updateViewConstraints() 方法中，或者 UIView 的 updateConstraints() 方法中执行，这样视图约束需要更新的时候会自动调用。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">//视图约束更新</div><div class="line">    override func updateViewConstraints() &#123;</div><div class="line">        self.box.snp_updateConstraints&#123; (make) -&gt; Void in</div><div class="line">            //视图宽度与屏幕等宽</div><div class="line">            make.width.equalTo(self.view)</div><div class="line">        &#125;</div><div class="line">   </div><div class="line">        super.updateViewConstraints()</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//视图约束更新</span><br><span class="line">    override func updateViewConstraints() &#123;</span><br><span class="line">        self.box.snp_updateConstraints&#123; (make) -&gt; Void in</span><br><span class="line">            //视图宽度与屏幕等宽</span><br><span class="line">            make.width.equalTo(self.view)</span><br><span class="line">        &#125;</span><br><span class="line">   </span><br><span class="line">        super.updateViewConstraints()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>5 使用snp_remakeConstraints重做约束</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">snp_remakeConstraints 与 snp_makeConstraints 用法类似，不同的是 snp_remakeConstraints 首先会先清除掉之前所有被SnapKit设置的约束。</div><div class="line"></div><div class="line">   //重做约束</div><div class="line">        box.snp_remakeConstraints &#123; (make) -&gt; Void in</div><div class="line">            make.width.height.equalTo(100)</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">snp_remakeConstraints 与 snp_makeConstraints 用法类似，不同的是 snp_remakeConstraints 首先会先清除掉之前所有被SnapKit设置的约束。</span><br><span class="line"></span><br><span class="line">   //重做约束</span><br><span class="line">        box.snp_remakeConstraints &#123; (make) -&gt; Void in</span><br><span class="line">            make.width.height.equalTo(100)</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/21/swift/swift-SnapKit自动布局使用2/" data-id="cja944s4j002iln4ixjaskkvt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/21/swift/swift-SnapKit自动布局使用2/" data-id="cja94cv6z003mut4i8ye0e4t1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SnapKit/">SnapKit</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift/">swift</a></li></ul>
@@ -198,7 +199,7 @@
           </li>
         
           <li>
-            <a href="/2017/11/21/android/androidstudio启动慢/">android studio启动慢</a>
+            <a href="/2017/11/21/VR/webgl和three/">VR 书籍</a>
           </li>
         
           <li>
@@ -206,7 +207,7 @@
           </li>
         
           <li>
-            <a href="/2017/11/21/chrome/Chrome使用技巧/">cherome使用技巧</a>
+            <a href="/2017/11/21/github/github插件1/">github插件1</a>
           </li>
         
       </ul>

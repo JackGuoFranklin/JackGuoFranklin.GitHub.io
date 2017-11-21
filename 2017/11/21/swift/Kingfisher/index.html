@@ -5,13 +5,14 @@
   
   <title>Swift 图片下载 | JackGuoFranklin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Kingfisher oc有个非常强大图片缓存处理的库SDWebImage，swift中现在也有个不错的图片处理的库—-Kingfisher Kingfisher库下载图片默认是带缓存的 最简单的使用 12import KingfisherimageView.kf_setImageWithURL(NSURL(string: &amp;quot;http//www.baidu.com.png&amp;quot;)!">
+  <meta name="description" content="Kingfisher oc有个非常强大图片缓存处理的库SDWebImage，swift中现在也有个不错的图片处理的库—-Kingfisher Kingfisher库下载图片默认是带缓存的 最简单的使用 12import KingfisherimageView.kf_setImageWithURL(NSURL(strin">
 <meta name="keywords" content="swift">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Swift 图片下载">
 <meta property="og:url" content="http://yoursite.com/2017/11/21/swift/Kingfisher/index.html">
 <meta property="og:site_name" content="JackGuoFranklin">
 <meta property="og:description" content="Kingfisher oc有个非常强大图片缓存处理的库SDWebImage，swift中现在也有个不错的图片处理的库—-Kingfisher Kingfisher库下载图片默认是带缓存的 最简单的使用 12import KingfisherimageView.kf_setImageWithURL(NSURL(string: &amp;quot;http//www.baidu.com.png&amp;quot;)!">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-11-21T04:12:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Swift 图片下载">
@@ -98,25 +99,25 @@
 <p>oc有个非常强大图片缓存处理的库SDWebImage，swift中现在也有个不错的图片处理的库—-Kingfisher</p>
 <p>Kingfisher库下载图片默认是带缓存的</p>
 <p>最简单的使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">import Kingfisher</div><div class="line">imageView.kf_setImageWithURL(NSURL(string: &quot;http//www.baidu.com.png&quot;)!)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import Kingfisher</span><br><span class="line">imageView.kf_setImageWithURL(NSURL(string: &quot;http//www.baidu.com.png&quot;)!)</span><br></pre></td></tr></table></figure>
 <p>配置 https</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">在info.plist里加上下面这段</div><div class="line">&lt;dict&gt;</div><div class="line">    &lt;key&gt;NSAllowsArbitraryLoads&lt;/key&gt;</div><div class="line">    &lt;true/&gt;</div><div class="line">&lt;/dict&gt;</div><div class="line">&lt;/plist&gt;</div><div class="line">去配置一个Dictionary类型的NSAppTransportSecurity 子item是Boolean类型NSAllowsArbitraryLoads value是YES</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">在info.plist里加上下面这段</span><br><span class="line">&lt;dict&gt;</span><br><span class="line">    &lt;key&gt;NSAllowsArbitraryLoads&lt;/key&gt;</span><br><span class="line">    &lt;true/&gt;</span><br><span class="line">&lt;/dict&gt;</span><br><span class="line">&lt;/plist&gt;</span><br><span class="line">去配置一个Dictionary类型的NSAppTransportSecurity 子item是Boolean类型NSAllowsArbitraryLoads value是YES</span><br></pre></td></tr></table></figure>
 <p>添加默认图</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">testImag.kf_setImageWithURL(NSURL(string: &quot;http://your.png&quot;)!, placeholderImage: UIImage(named: &quot;mrt&quot;))</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">testImag.kf_setImageWithURL(NSURL(string: &quot;http://your.png&quot;)!, placeholderImage: UIImage(named: &quot;mrt&quot;))</span><br></pre></td></tr></table></figure>
 <p>默认情况下Kingfisher使用url当做cache(缓存)的key。 不过你也可以自定义这个key 。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">let URL = NSURL(string: &quot;http://your.png&quot;)!</div><div class="line">let resource = Resource(downloadURL: URL, cacheKey: &quot;your_customized_key&quot;)</div><div class="line">imageView.kf_setImageWithResource(resource)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let URL = NSURL(string: &quot;http://your.png&quot;)!</span><br><span class="line">let resource = Resource(downloadURL: URL, cacheKey: &quot;your_customized_key&quot;)</span><br><span class="line">imageView.kf_setImageWithResource(resource)</span><br></pre></td></tr></table></figure>
 <p>Kingfisher 默认先从内存和硬盘搜 ，如果没找到才去URL down，当然你也可以强制它每次从URL down，忽略缓存</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">imageView.kf_setImageWithURL(NSURL(string: &quot;your_image_url&quot;)!, placeholderImage: nil, optionsInfo: [.Options: KingfisherOptions.ForceRefresh])</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">imageView.kf_setImageWithURL(NSURL(string: &quot;your_image_url&quot;)!, placeholderImage: nil, optionsInfo: [.Options: KingfisherOptions.ForceRefresh])</span><br></pre></td></tr></table></figure>
 <p>下载和缓存系统</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">let downloader = KingfisherManager.sharedManager.downloader</div><div class="line"></div><div class="line">// 修改超时时间</div><div class="line">downloader.downloadTimeout = 5</div><div class="line"></div><div class="line">let cache = KingfisherManager.sharedManager.cache</div><div class="line"></div><div class="line">// 设置硬盘最大缓存50M ，默认无限</div><div class="line">cache.maxDiskCacheSize = 50 * 1024 * 1024</div><div class="line">// 设置硬盘最大保存3天 ， 默认1周</div><div class="line">cache.maxCachePeriodInSecond = 60 * 60 * 24 * 3</div><div class="line"></div><div class="line">// 获取硬盘缓存的大小</div><div class="line">cache.cache.calculateDiskCacheSizeWithCompletionHandler &#123; (size) -&gt; () in      </div><div class="line">    println(&quot;disk size in bytes: \(size)&quot;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">//清理内存缓存</div><div class="line">cache.clearMemoryCache()</div><div class="line"></div><div class="line">// 清理硬盘缓存，这是一个异步的操作</div><div class="line">cache.clearDiskCache()</div><div class="line"></div><div class="line">// 清理过期或大小超过磁盘限制缓存。这是一个异步的操作</div><div class="line">cache.cleanExpiredDiskCache()</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">let downloader = KingfisherManager.sharedManager.downloader</span><br><span class="line"></span><br><span class="line">// 修改超时时间</span><br><span class="line">downloader.downloadTimeout = 5</span><br><span class="line"></span><br><span class="line">let cache = KingfisherManager.sharedManager.cache</span><br><span class="line"></span><br><span class="line">// 设置硬盘最大缓存50M ，默认无限</span><br><span class="line">cache.maxDiskCacheSize = 50 * 1024 * 1024</span><br><span class="line">// 设置硬盘最大保存3天 ， 默认1周</span><br><span class="line">cache.maxCachePeriodInSecond = 60 * 60 * 24 * 3</span><br><span class="line"></span><br><span class="line">// 获取硬盘缓存的大小</span><br><span class="line">cache.cache.calculateDiskCacheSizeWithCompletionHandler &#123; (size) -&gt; () in      </span><br><span class="line">    println(&quot;disk size in bytes: \(size)&quot;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//清理内存缓存</span><br><span class="line">cache.clearMemoryCache()</span><br><span class="line"></span><br><span class="line">// 清理硬盘缓存，这是一个异步的操作</span><br><span class="line">cache.clearDiskCache()</span><br><span class="line"></span><br><span class="line">// 清理过期或大小超过磁盘限制缓存。这是一个异步的操作</span><br><span class="line">cache.cleanExpiredDiskCache()</span><br></pre></td></tr></table></figure>
 <p>回调</p>
 <p>下载完成后</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">imageView.kf_setImageWithURL(NSURL(string: &quot;your_image_url&quot;)!, </div><div class="line">  placeholderImage: nil, </div><div class="line">  optionsInfo: nil, </div><div class="line">  progressBlock: &#123; (receivedSize, totalSize) -&gt; () in </div><div class="line">  println(&quot;Download Progress: \(receivedSize)/\(totalSize)&quot;) &#125;, </div><div class="line">  completionHandler: &#123; (image, error, imageURL) -&gt; () in </div><div class="line">  println(&quot;Downloaded and set!&quot;) </div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">imageView.kf_setImageWithURL(NSURL(string: &quot;your_image_url&quot;)!, </span><br><span class="line">  placeholderImage: nil, </span><br><span class="line">  optionsInfo: nil, </span><br><span class="line">  progressBlock: &#123; (receivedSize, totalSize) -&gt; () in </span><br><span class="line">  println(&quot;Download Progress: \(receivedSize)/\(totalSize)&quot;) &#125;, </span><br><span class="line">  completionHandler: &#123; (image, error, imageURL) -&gt; () in </span><br><span class="line">  println(&quot;Downloaded and set!&quot;) </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/21/swift/Kingfisher/" data-id="cja944s3v001kln4i0t3htoxo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/21/swift/Kingfisher/" data-id="cja94cv5j002put4iojy80mxs" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift/">swift</a></li></ul>
@@ -205,7 +206,7 @@
           </li>
         
           <li>
-            <a href="/2017/11/21/android/androidstudio启动慢/">android studio启动慢</a>
+            <a href="/2017/11/21/VR/webgl和three/">VR 书籍</a>
           </li>
         
           <li>
@@ -213,7 +214,7 @@
           </li>
         
           <li>
-            <a href="/2017/11/21/chrome/Chrome使用技巧/">cherome使用技巧</a>
+            <a href="/2017/11/21/github/github插件1/">github插件1</a>
           </li>
         
       </ul>

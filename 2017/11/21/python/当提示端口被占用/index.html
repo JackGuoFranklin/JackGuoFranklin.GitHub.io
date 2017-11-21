@@ -5,13 +5,14 @@
   
   <title>python django新建项目 | JackGuoFranklin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1 新建一个 django project 1django-admin.py startproject project-name 一个 project 为一个项目，project-name 项目名称，改成你自己的，要符合Python 的变量命名规则（以下划线或字母开头） 2 新建 app 12python manage.py startapp app-name或 django-admin.py s">
+  <meta name="description" content="1 新建一个 django project 1django-admin.py startproject project-name 一个 project 为一个项目，project-name 项目名称，改成你自己的，要符合Python 的变量命名规则（以下划线或字母开头） 2 新建 app 12python manage">
 <meta name="keywords" content="python django">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python django新建项目">
 <meta property="og:url" content="http://yoursite.com/2017/11/21/python/当提示端口被占用/index.html">
 <meta property="og:site_name" content="JackGuoFranklin">
 <meta property="og:description" content="1 新建一个 django project 1django-admin.py startproject project-name 一个 project 为一个项目，project-name 项目名称，改成你自己的，要符合Python 的变量命名规则（以下划线或字母开头） 2 新建 app 12python manage.py startapp app-name或 django-admin.py s">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-11-21T04:12:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python django新建项目">
@@ -95,27 +96,27 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>1 新建一个 django project</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">django-admin.py startproject project-name</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">django-admin.py startproject project-name</span><br></pre></td></tr></table></figure>
 <p>一个 project 为一个项目，project-name 项目名称，改成你自己的，要符合Python 的变量命名规则（以下划线或字母开头）</p>
 <p>2 新建 app</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">python manage.py startapp app-name</div><div class="line">或 django-admin.py startapp app-name</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python manage.py startapp app-name</span><br><span class="line">或 django-admin.py startapp app-name</span><br></pre></td></tr></table></figure>
 <p>一般一个项目有多个app, 当然通用的app也可以在多个项目中使用。</p>
 <p>3 同步数据库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">python manage.py syncdb</div><div class="line"> </div><div class="line">注意：Django 1.7.1及以上的版本需要用以下命令</div><div class="line">python manage.py makemigrations</div><div class="line">python manage.py migrate</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">python manage.py syncdb</span><br><span class="line"> </span><br><span class="line">注意：Django 1.7.1及以上的版本需要用以下命令</span><br><span class="line">python manage.py makemigrations</span><br><span class="line">python manage.py migrate</span><br></pre></td></tr></table></figure>
 <p>这种方法可以创建表，当你在models.py中新增了类时，运行它就可以自动在数据库中创建表了，不用手动创建。</p>
 <p>备注：对已有的 models 进行修改，Django 1.7之前的版本的Django都是无法自动更改表结构的，不过有第三方工具 south,详见 Django 数据库迁移 一节。</p>
 <p>4 使用开发服务器<br>开发服务器，即开发时使用，一般修改代码后会自动重启，方便调试和开发，但是由于性能问题，建议只用来测试，不要用在生产环境。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">python manage.py runserver</div><div class="line"> </div><div class="line"># 当提示端口被占用的时候，可以用其它端口：</div><div class="line">python manage.py runserver 8001</div><div class="line">python manage.py runserver 9999</div><div class="line">（当然也可以kill掉占用端口的进程）</div><div class="line"> </div><div class="line"># 监听所有可用 ip （电脑可能有一个或多个内网ip，一个或多个外网ip，即有多个ip地址）</div><div class="line">python manage.py runserver 0.0.0.0:8000</div><div class="line"># 如果是外网或者局域网电脑上可以用其它电脑查看开发服务器</div><div class="line"># 访问对应的 ip加端口，比如 http://172.16.20.2:8000</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">python manage.py runserver</span><br><span class="line"> </span><br><span class="line"># 当提示端口被占用的时候，可以用其它端口：</span><br><span class="line">python manage.py runserver 8001</span><br><span class="line">python manage.py runserver 9999</span><br><span class="line">（当然也可以kill掉占用端口的进程）</span><br><span class="line"> </span><br><span class="line"># 监听所有可用 ip （电脑可能有一个或多个内网ip，一个或多个外网ip，即有多个ip地址）</span><br><span class="line">python manage.py runserver 0.0.0.0:8000</span><br><span class="line"># 如果是外网或者局域网电脑上可以用其它电脑查看开发服务器</span><br><span class="line"># 访问对应的 ip加端口，比如 http://172.16.20.2:8000</span><br></pre></td></tr></table></figure>
 <p> 5 清空数据库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python manage.py flush</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py flush</span><br></pre></td></tr></table></figure>
 <p>此命令会询问是 yes 还是 no, 选择 yes 会把数据全部清空掉，只留下空表。</p>
 <p>6  创建超级管理员</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">python manage.py createsuperuser</div><div class="line"> </div><div class="line"># 按照提示输入用户名和对应的密码就好了邮箱可以留空，用户名和密码必填</div><div class="line"> </div><div class="line"># 修改 用户密码可以用：</div><div class="line">python manage.py changepassword username</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">python manage.py createsuperuser</span><br><span class="line"> </span><br><span class="line"># 按照提示输入用户名和对应的密码就好了邮箱可以留空，用户名和密码必填</span><br><span class="line"> </span><br><span class="line"># 修改 用户密码可以用：</span><br><span class="line">python manage.py changepassword username</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/21/python/当提示端口被占用/" data-id="cja944s3u001jln4idlkx0dwo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/21/python/当提示端口被占用/" data-id="cja94cv5e002lut4idx09w97z" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python-django/">python django</a></li></ul>
@@ -126,11 +127,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/11/21/VR/webgl和three/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/11/21/android/androidstudio启动慢/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          VR 书籍
+          android studio启动慢
         
       </div>
     </a>
@@ -204,7 +205,7 @@
           </li>
         
           <li>
-            <a href="/2017/11/21/android/androidstudio启动慢/">android studio启动慢</a>
+            <a href="/2017/11/21/VR/webgl和three/">VR 书籍</a>
           </li>
         
           <li>
@@ -212,7 +213,7 @@
           </li>
         
           <li>
-            <a href="/2017/11/21/chrome/Chrome使用技巧/">cherome使用技巧</a>
+            <a href="/2017/11/21/github/github插件1/">github插件1</a>
           </li>
         
       </ul>
