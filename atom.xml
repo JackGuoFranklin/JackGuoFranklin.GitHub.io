@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-11-21T04:56:07.000Z</updated>
+  <updated>2017-11-21T04:12:07.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,31 +17,28 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>reactNative开发环境搭建</title>
-    <link href="http://yoursite.com/2017/11/21/reactNative/reactNative%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
-    <id>http://yoursite.com/2017/11/21/reactNative/reactNative开发环境搭建/</id>
-    <published>2017-11-21T04:50:50.000Z</published>
-    <updated>2017-11-21T04:56:07.000Z</updated>
+    <title>python Django简介</title>
+    <link href="http://yoursite.com/2017/11/21/python/Django%E7%AE%80%E4%BB%8B/"/>
+    <id>http://yoursite.com/2017/11/21/python/Django简介/</id>
+    <published>2017-11-21T04:12:07.000Z</published>
+    <updated>2017-11-21T04:12:07.000Z</updated>
     
-    <content type="html"><![CDATA[<p>reactNative开发环境搭建</p><p>#(一) 搭建基本环境（必要）</p><p>##1.安装Homebrew</p><p>打开终端，运行以下语句（中间需要输入密码）进行安装：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span><br></pre></td></tr></table></figure><p>可通过如下语句查看安装是否成功以及安装的Homebrew版本：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew -v</span><br></pre></td></tr></table></figure><p>正常情况下均可安装成功，若出现网络问题安装失败，则运行如下语句清理后再重新安装：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)&quot;</span><br><span class="line">ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span><br></pre></td></tr></table></figure><p>##2. 使用Homebrew来安装Node.js<br>使用brew安装node.js</p><p>终端运行语句如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install node</span><br></pre></td></tr></table></figure><p>查看安装是否成功以及安装的node.js版本：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure><p>##3. 安装React Native的命令行工具（react-native-cli）</p><p>React Native的命令行工具用于执行创建、初始化、更新项目、运行打包服务（packager）等任务。</p><p>终端运行语句如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g react-native-cli</span><br></pre></td></tr></table></figure><p>若出现错误（可能由于权限不足），则实用以下语句进行安装：</p><p>1<br>sudo npm install -g react-native-cli<br>由于国内网络问题，可以将npm仓库替换为国内镜像</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//将npm仓库替换为国内镜像：</span><br><span class="line">npm config set registry https://registry.npm.taobao.org --global</span><br><span class="line">npm config set disturl https://npm.taobao.org/dist --global</span><br></pre></td></tr></table></figure><p>#(二) 推荐安装的工具</p><p>##1. Watchman<br>Watchman是由Facebook提供的监视文件系统变更的工具。安装此工具可以提高开发时的性能（packager可以快速捕捉文件的变化从而实现实时刷新）。</p><p>终端运行语句安装：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install watchman</span><br></pre></td></tr></table></figure><p>查看安装是否成功以及安装的watchman版本：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">watchman -v</span><br></pre></td></tr></table></figure><p>##2. Flow<br>Flow是一个静态的JS类型检查工具，可方便找出代码中可能存在的类型错误。<br>译注：你在很多示例中看到的奇奇怪怪的冒号问号，以及方法参数中像类型一样的写法，都是属于这个flow工具的语法。这一语法并不属于ES标准，只是Facebook自家的代码规范。</p><p>终端运行语句安装：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install flow</span><br></pre></td></tr></table></figure><p>查看安装是否成功以及安装的flow版本：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flow --version</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>Django 简介<br>让我们一览 Django 全貌<br>urls.py<br>网址入口，关联到对应的views.py中的一个函数（或者generic类），访问网址就对应一个函数。</p><p>views.py<br>处理用户发出的请求，从urls.py中对应过来, 通过渲染templates中的网页可以将显示内容，比如登陆后的用户名，用户请求的数据，输出到网页。</p><p>models.py<br>与数据库操作相关，存入或读取数据时用到这个，当然用不到数据库的时候 你可以不使用。</p><p>forms.py<br>表单，用户在浏览器上输入数据提交，对数据的验证工作以及输入框的生成等工作，当然你也可以不使用。</p><p>templates 文件夹</p><p>views.py 中的函数渲染templates中的Html模板，得到动态内容的网页，当然可以用缓存来提高速度。</p><p>admin.py<br>后台，可以用很少量的代码就拥有一个强大的后台。</p><p>settings.py<br>Django 的设置，配置文件，比如 DEBUG 的开关，静态文件的位置等。</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;reactNative开发环境搭建&lt;/p&gt;
-&lt;p&gt;#(一) 搭建基本环境（必要）&lt;/p&gt;
-&lt;p&gt;##1.安装Homebrew&lt;/p&gt;
-&lt;p&gt;打开终端，运行以下语句（中间需要输入密码）进行安装：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;tab
+        &lt;p&gt;Django 简介&lt;br&gt;让我们一览 Django 全貌&lt;br&gt;urls.py&lt;br&gt;网址入口，关联到对应的views.py中的一个函数（或者generic类），访问网址就对应一个函数。&lt;/p&gt;
+&lt;p&gt;views.py&lt;br&gt;处理用户发出的请求，从urls.py中对应过来,
       
     
     </summary>
     
-      <category term="reactNative" scheme="http://yoursite.com/categories/reactNative/"/>
+      <category term="python django" scheme="http://yoursite.com/categories/python-django/"/>
     
     
-      <category term="reactNative" scheme="http://yoursite.com/tags/reactNative/"/>
+      <category term="python django" scheme="http://yoursite.com/tags/python-django/"/>
     
   </entry>
   
@@ -271,6 +268,145 @@
   </entry>
   
   <entry>
+    <title>Hexo Next 配置主观</title>
+    <link href="http://yoursite.com/2017/11/21/hexo/HexoNext%E9%85%8D%E7%BD%AE%E4%B8%BB%E9%A2%98/"/>
+    <id>http://yoursite.com/2017/11/21/hexo/HexoNext配置主题/</id>
+    <published>2017-11-21T04:12:07.000Z</published>
+    <updated>2017-11-21T04:12:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="语言设置"><a href="#语言设置" class="headerlink" title="语言设置"></a>语言设置</h3><p>在主目录下_config.yml 中配置</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">language: zh-Hans</span><br></pre></td></tr></table></figure><table><thead><tr><th>语言</th><th>代码</th><th>设定值</th></tr></thead><tbody><tr><td>English</td><td>en</td><td>language: en</td></tr><tr><td>简体中文</td><td>zh-Hans</td><td>language: zh-Hans</td></tr></tbody></table><h3 id="菜单设置"><a href="#菜单设置" class="headerlink" title="菜单设置"></a>菜单设置</h3><p>菜单配置在 主题配置文件的 menu</p><p>菜单示例配置：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: /</span><br><span class="line">  archives: /archives</span><br><span class="line">  #about: /about</span><br><span class="line">  #categories: /categories</span><br><span class="line">  tags: /tags</span><br><span class="line">  #commonweal: /404.html</span><br></pre></td></tr></table></figure><h3 id="侧栏设置"><a href="#侧栏设置" class="headerlink" title="侧栏设置"></a>侧栏设置</h3><p>配置选项</p><ul><li>post - 默认行为，在文章页面（拥有目录列表）时显示</li><li>always - 在所有页面中都显示</li><li>hide - 在所有页面中都隐藏（可以手动展开）</li></ul><p>侧栏示例配置：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sidebar: post</span><br></pre></td></tr></table></figure><h3 id="头像设置"><a href="#头像设置" class="headerlink" title="头像设置"></a>头像设置</h3><p>新增字段 avatar</p><p>1 完整的互联网 URL    <a href="https://avatars1.githubusercontent.com/u/32269?v=3&amp;s=460" target="_blank" rel="noopener">https://avatars1.githubusercontent.com/u/32269?v=3&amp;s=460</a></p><p>2 站点内的地址    /uploads/avatar.jpg - 需要将你的头像图片放置在 站点的 source/uploads/ （可能需要新建uploads目录）</p><p>3 /images/avatar.jpg - 需要将你的头像图片放置在 主题的 source/images/ 目录下</p><h3 id="作者名称"><a href="#作者名称" class="headerlink" title="作者名称"></a>作者名称</h3><p>设置 author 为你的昵称</p><h3 id="站点描述设置"><a href="#站点描述设置" class="headerlink" title="站点描述设置"></a>站点描述设置</h3><p>设置 description 字段为你的站点描述。</p><h3 id="添加「标签」页面"><a href="#添加「标签」页面" class="headerlink" title="添加「标签」页面"></a>添加「标签」页面</h3><p>1 定位到 Hexo 站点目录下</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page tags</span><br></pre></td></tr></table></figure><p>2编辑刚新建的页面，将页面的类型设置为 tags </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">title: 标签</span><br><span class="line">type: &quot;tags&quot;</span><br></pre></td></tr></table></figure><p>3  添加 tags 到 menu 中</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: /</span><br><span class="line">  archives: /archives</span><br><span class="line">  tags: /tags</span><br></pre></td></tr></table></figure><h3 id="添加「分类」页面"><a href="#添加「分类」页面" class="headerlink" title="添加「分类」页面"></a>添加「分类」页面</h3><p>1 定位到 Hexo 站点目录下</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure><p>2编辑刚新建的页面，将页面的类型设置为 categories </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">title: 标签</span><br><span class="line">type: &quot;categories&quot;</span><br></pre></td></tr></table></figure><p>3  添加 categories 到 menu 中</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: /</span><br><span class="line">  archives: /archives</span><br><span class="line">  categories: /categories</span><br></pre></td></tr></table></figure><h3 id="设置代码高亮主题"><a href="#设置代码高亮主题" class="headerlink" title="设置代码高亮主题"></a>设置代码高亮主题</h3><p>NexT 默认使用的是 白色的 normal 主题,可选的值有 normal，night， night blue， night bright， night eighties.</p><p>更改 highlight_theme 字段，将其值设定成你所喜爱的高亮主题，例如：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Code Highlight theme</span><br><span class="line"># Available value: normal | night | night eighties | night blue | night bright</span><br><span class="line"># https://github.com/chriskempson/tomorrow-theme</span><br><span class="line">highlight_theme: normal</span><br></pre></td></tr></table></figure><h3 id="侧边栏社交链接"><a href="#侧边栏社交链接" class="headerlink" title="侧边栏社交链接"></a>侧边栏社交链接</h3><p>1<br>接放置在 social 字段下，一行一个链接。其键值格式是 显示文本: 链接地址。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Social links</span><br><span class="line">social:</span><br><span class="line">  GitHub: https://github.com/your-user-name</span><br><span class="line">  Twitter: https://twitter.com/your-user-name</span><br><span class="line">  微博: http://weibo.com/your-user-name</span><br><span class="line">  豆瓣: http://douban.com/people/your-user-name</span><br><span class="line">  知乎: http://www.zhihu.com/people/your-user-name</span><br><span class="line">  # 等等</span><br></pre></td></tr></table></figure><p>2 设定链接的图标，对应的字段是 social_icons。其键值格式是 匹配键: Font Awesome 图标名称， 匹配键 与上一步所配置的链接的 显示文本 相同（大小写严格匹配），图标名称 是 Font Awesome 图标的名字（不必带 fa- 前缀）。 enable 选项用于控制是否显示图标，你可以设置成 false 来去掉图标。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Social Icons</span><br><span class="line">social_icons:</span><br><span class="line">  enable: true</span><br><span class="line">  # Icon Mappings</span><br><span class="line">  GitHub: github</span><br><span class="line">  Twitter: twitter</span><br><span class="line">  微博: weibo</span><br></pre></td></tr></table></figure><h3 id="设置-RSS"><a href="#设置-RSS" class="headerlink" title="设置 RSS"></a>设置 RSS</h3><p>NexT 中 RSS 有三个设置选项，满足特定的使用场景。 更改 主题配置文件，设定 rss 字段的值：</p><ul><li>false：禁用 RSS，不在页面上显示 RSS 连接。</li><li>留空：使用 Hexo 生成的 Feed 链接。 你可以需要先安装 hexo-generator-feed 插件。</li><li>具体的链接地址：适用于已经烧制过 Feed 的情形。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;语言设置&quot;&gt;&lt;a href=&quot;#语言设置&quot; class=&quot;headerlink&quot; title=&quot;语言设置&quot;&gt;&lt;/a&gt;语言设置&lt;/h3&gt;&lt;p&gt;在主目录下_config.yml 中配置&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;tabl
+      
+    
+    </summary>
+    
+      <category term="hexo" scheme="http://yoursite.com/categories/hexo/"/>
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+      <category term="next" scheme="http://yoursite.com/tags/next/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo 初步教程</title>
+    <link href="http://yoursite.com/2017/11/21/hexo/Hexo%E5%88%9D%E6%AD%A5%E6%95%99%E7%A8%8B/"/>
+    <id>http://yoursite.com/2017/11/21/hexo/Hexo初步教程/</id>
+    <published>2017-11-21T04:12:07.000Z</published>
+    <updated>2017-11-21T04:12:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><p>我选用了Homebrew来安装mac下的软件，你可以先安装<br>Homebrew</p><h3 id="安装Homebrew"><a href="#安装Homebrew" class="headerlink" title="安装Homebrew"></a>安装Homebrew</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span><br></pre></td></tr></table></figure><h3 id="成功之后安装git"><a href="#成功之后安装git" class="headerlink" title="成功之后安装git"></a>成功之后安装git</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install git</span><br></pre></td></tr></table></figure><h3 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h3><p>去<a href="https://nodejs.org/en/" target="_blank" rel="noopener">nodes.js</a> 官网下载，安装即可。</p><h3 id="配置SSH-keys"><a href="#配置SSH-keys" class="headerlink" title="配置SSH keys"></a>配置SSH keys</h3><p>打开GitHub，进入设置界面，点击左边的SSH keys，添加一个SSH keys。</p><p>1.输入以下代码生成新的key文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;邮件地址@youremail.com&quot;</span><br></pre></td></tr></table></figure><p>这里的邮件地址填自己注册时的邮件地址，注意大小写，双引号不能省略，终端会返回代码让你确定文件名，回车就好。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file in which to save the key (/Users/DoubleD/.ssh/id\_rsa): //回车就行</span><br></pre></td></tr></table></figure><p>接着会让你输入加密串，可以空着：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Enter passphrase (empty for no passphrase):\&lt;输入加密串\&gt;</span><br><span class="line">Enter same passphrase again:\&lt;再次输入加密串\&gt;</span><br></pre></td></tr></table></figure><p>成功的创建了一个SSH key。</p><p>找到本机上的id_rsa.pub文件,打开它（建议使用Sublime Text）复制里面的代码.添加到SSH key 中</p><p>然后点击Add key就配置好了SSH key</p><p>测试是否配置成功</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure><p>看到</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">You&apos;ve successfully authenticated, but GitHub does not provide shell access.</span><br></pre></td></tr></table></figure><p>表示配置成功了。</p><p>完成之后，我们设置好个人信息，用于提交代码说明是谁提交的，怎么联系。可以用以下指令完成：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;你的名字&quot;</span><br><span class="line">git config --global user.email  &quot;你的邮箱&quot;</span><br></pre></td></tr></table></figure><h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>打开终端，输入以下指令：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo</span><br></pre></td></tr></table></figure><p>注意如果不能安装可能被墙了，换源在终端输入</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry=&quot;http://registry.cnpmjs.org&quot;</span><br></pre></td></tr></table></figure><p>如果还出问题  在前面加入sudo 在管理员权限下上面的命令</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm config set registry=&quot;http://registry.cnpmjs.org&quot;</span><br></pre></td></tr></table></figure><p>提示输入密码，输入管理员密码就可了。</p><p>然后在终端输入</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo</span><br></pre></td></tr></table></figure><p>重新安装一下。</p><p>安装后，进入你要存博客的目录，在该目录下执行如下命令</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure><p>Hexo就会在该文件夹建立博客所需要的所有文件。本地的Hexo博客已经初步搭建起来，输入以下指令：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo generate//可以简写为 hexo g</span><br><span class="line">hexo server//可以简写为 hexo s</span><br></pre></td></tr></table></figure><p>就可以在浏览器中输入localhost:4000查看本地博客了。如果不能查看请输入<br>127.0.0.1:4000查看。在不行了。就是没有成功从hexo init重新来一次就可以了。要注意的是，所有的hexo指令都必须在你所建立的目录下执行。</p><h3 id="部署Hexo到GitHub上"><a href="#部署Hexo到GitHub上" class="headerlink" title="部署Hexo到GitHub上"></a>部署Hexo到GitHub上</h3><p>安装一个插件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure><p>然后打开博客目录的_config.yml文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: https://github.com/joway/hexo-blog.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure><p>注意”:”号后面有空格。必须空一格。<br>然后输入</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo deploy//可简写为 hexo d</span><br></pre></td></tr></table></figure><p>在浏览器中输入</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://你的id.github.io/</span><br></pre></td></tr></table></figure><p>就可以访问自己的博客了。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;安装git&quot;&gt;&lt;a href=&quot;#安装git&quot; class=&quot;headerlink&quot; title=&quot;安装git&quot;&gt;&lt;/a&gt;安装git&lt;/h3&gt;&lt;p&gt;我选用了Homebrew来安装mac下的软件，你可以先安装&lt;br&gt;Homebrew&lt;/p&gt;
+&lt;h3 id=&quot;安装Ho
+      
+    
+    </summary>
+    
+      <category term="hexo" scheme="http://yoursite.com/categories/hexo/"/>
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo更换主题Next</title>
+    <link href="http://yoursite.com/2017/11/21/hexo/Hexo%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98Next/"/>
+    <id>http://yoursite.com/2017/11/21/hexo/Hexo更换主题Next/</id>
+    <published>2017-11-21T04:12:07.000Z</published>
+    <updated>2017-11-21T04:12:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<p> 1 下载主题</p><p>  从终端进入你的hexo目录然后在终端输入如下命令下载主题</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure><p> 2 启用主题</p><p> 修改当hexo目录下的_config.yml 的theme 选项</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">## Themes: https://hexo.io/themes/</span><br><span class="line">theme: next</span><br></pre></td></tr></table></figure><p> 3 验证是否启用</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s --debug</span><br></pre></td></tr></table></figure><p>访问</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:4000</span><br></pre></td></tr></table></figure><p>确保站点正确运行。</p><p>4 其他配置。</p><p>   主题设定<br>   <a href="http://theme-next.iissnan.com/theme-settings.html" target="_blank" rel="noopener">next|主题设定</a></p><p>   第三方服务<br>   <a href="http://theme-next.iissnan.com/third-party-services.html" target="_blank" rel="noopener">next|第三方服务</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt; 1 下载主题&lt;/p&gt;
+&lt;p&gt;  从终端进入你的hexo目录然后在终端输入如下命令下载主题&lt;/p&gt;
+ &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;
+      
+    
+    </summary>
+    
+      <category term="hexo" scheme="http://yoursite.com/categories/hexo/"/>
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo评论系统与站点计数</title>
+    <link href="http://yoursite.com/2017/11/21/hexo/Hexo%E8%AF%84%E8%AE%BA%E4%B8%8E%E7%AB%99%E7%82%B9%E7%BB%9F%E8%AE%A1%E7%B3%BB%E7%BB%9F/"/>
+    <id>http://yoursite.com/2017/11/21/hexo/Hexo评论与站点统计系统/</id>
+    <published>2017-11-21T04:12:07.000Z</published>
+    <updated>2017-11-21T04:12:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>评论系统与站点计数</p><p>添加 多说 或者 Disqus 第三方评论系统。当同时设置了 多说 和 Disqus 时，优先选择多说。</p><h3 id="使用多说"><a href="#使用多说" class="headerlink" title="使用多说"></a>使用多说</h3><ol><li><p>注册多说</p><ol><li><p>登录后在首页选择 “我要安装”。</p></li><li><p>创建站点，填写站点相关信息。注意，多说域名 这一栏填写的即是你的 duoshuo_shortname。</p></li></ol></li><li><p>编辑站点的 _config.yml 注意，不是主题的_config.yml文件 ，添加 duoshuo_shortname 字段，设置如下</p></li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">duoshuo_shortname: your-duoshuo-shortname</span><br></pre></td></tr></table></figure><p>（注）duoshuo short name: 你的多说二级域名去掉 .duoshuo.com 部分</p><h3 id="使用-Disqus"><a href="#使用-Disqus" class="headerlink" title="使用 Disqus"></a>使用 Disqus</h3><p>编辑站点的 _config.yml ，添加 disqus_shortname 字段，设置如下</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">disqus_shortname: your-disqus-shortname</span><br></pre></td></tr></table></figure><h3 id="多说评论显示-UA"><a href="#多说评论显示-UA" class="headerlink" title="多说评论显示 UA"></a>多说评论显示 UA</h3><p>需要配置 duoshuo_info 这个字段</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">duoshuo_info:</span><br><span class="line">  ua_enable: true</span><br><span class="line">  admin_enable: true</span><br><span class="line">  user_id: 1234567</span><br><span class="line">  admin_nickname: 主编大人</span><br></pre></td></tr></table></figure><p>配置 user_id 和 admin_nickname 字段。 请访问 多说，登录并访问「我的主页」获取 user_id ， 此 ID 是 网址最后那串数字。</p><h3 id="显示站点总访问量"><a href="#显示站点总访问量" class="headerlink" title="显示站点总访问量"></a>显示站点总访问量</h3><p>找到站点的themes/next/layout/_partials目录下的footer.swig文件<br>将以下脚本和标签插入到文件中</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script async src=&quot;https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">本站总访问量 &lt;span id=&quot;busuanzi_value_site_pv&quot;&gt;&lt;/span&gt; &amp;nbsp&amp;nbsp&amp;nbsp</span><br><span class="line">您是第&lt;span id=&quot;busuanzi_value_site_uv&quot;&gt;&lt;/span&gt;个来到的小伙伴</span><br></pre></td></tr></table></figure><p>插入到这里</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;powered-by&quot;&gt;</span><br><span class="line"> &#123;&#123; __(&apos;footer.powered&apos;, &apos;&lt;a class=&quot;theme-link&quot; href=&quot;http://hexo.io&quot;&gt;Hexo&lt;/a&gt;&apos;) &#125;&#125;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;theme-info&quot;&gt;</span><br><span class="line"> &#123;&#123; __(&apos;footer.theme&apos;) &#125;&#125; -</span><br><span class="line"> &lt;a class=&quot;theme-link&quot; href=&quot;https://github.com/iissnan/hexo-theme-next&quot;&gt;</span><br><span class="line">   NexT&#123;% if theme.scheme %&#125;.&#123;&#123; theme.scheme &#125;&#125;&#123;% endif %&#125;</span><br><span class="line"> &lt;/a&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"># 插入到这里</span><br><span class="line">&#123;% block footer %&#125;&#123;% endblock %&#125;</span><br></pre></td></tr></table></figure><h3 id="显示单页面访问量"><a href="#显示单页面访问量" class="headerlink" title="显示单页面访问量"></a>显示单页面访问量</h3><p>修改themes/next/layout/_macro目录下的post.swig文件</p><p>位于文件开头,在第三个参数的位置，增加is_pv字段</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% macro render(post, is_index, is_pv, post_extra_class) %&#125;</span><br></pre></td></tr></table></figure><p>插入以下代码，用于区分文章页面跟首页</p><p>这里不用像”显示站点总访问量”中那样安装脚本，否则会出现重复计数的问题。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if is_pv %&#125;</span><br><span class="line">&lt;span&gt;&amp;nbsp; | &amp;nbsp;</span><br><span class="line">&lt;span id=&quot;busuanzi_value_page_pv&quot; &gt;&lt;/span&gt;次阅读</span><br><span class="line">&lt;/span&gt;    </span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure><p>插入这个位置</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if post.comments %&#125;</span><br><span class="line">          &#123;% if (theme.duoshuo and theme.duoshuo.shortname) or theme.duoshuo_shortname %&#125;</span><br><span class="line">            &lt;span class=&quot;post-comments-count&quot;&gt;</span><br><span class="line">              &amp;nbsp; | &amp;nbsp;</span><br><span class="line">              &lt;a href=&quot;&#123;&#123; url_for(post.path) &#125;&#125;#comments&quot; itemprop=&quot;discussionUrl&quot;&gt;</span><br><span class="line">                &lt;span class=&quot;post-comments-count ds-thread-count&quot; data-thread-key=&quot;&#123;&#123; post.path &#125;&#125;&quot; itemprop=&quot;commentsCount&quot;&gt;&lt;/span&gt;</span><br><span class="line">              &lt;/a&gt;</span><br><span class="line">            &lt;/span&gt;</span><br><span class="line">          &#123;% elseif theme.disqus_shortname %&#125;</span><br><span class="line">            &lt;span class=&quot;post-comments-count&quot;&gt;</span><br><span class="line">            &amp;nbsp; | &amp;nbsp;</span><br><span class="line">            &lt;a href=&quot;&#123;&#123; url_for(post.path) &#125;&#125;#comments&quot; itemprop=&quot;discussionUrl&quot;&gt;</span><br><span class="line">              &lt;span class=&quot;post-comments-count disqus-comment-count&quot; data-disqus-identifier=&quot;&#123;&#123; post.path &#125;&#125;&quot; itemprop=&quot;commentsCount&quot;&gt;&lt;/span&gt;</span><br><span class="line">            &lt;/a&gt;</span><br><span class="line">          &lt;/span&gt;</span><br><span class="line">          &#123;% endif %&#125;      </span><br><span class="line">        &#123;% endif %&#125; </span><br><span class="line">#插入到这里</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    &lt;/header&gt;</span><br></pre></td></tr></table></figure><p>修改themes/next/layout目录下的post.swig文件</p><p>这个文件是文章的模板</p><p>找到以下代码，给render方法传入刚才第一步中设置的参数。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;% block content %&#125;</span><br><span class="line">  &lt;div id=&quot;posts&quot; class=&quot;posts-expand&quot;&gt;</span><br><span class="line">  #render方法第二个参数is_index为是否为首页</span><br><span class="line">  #第三个参数is_pv为我们刚才设置的是否显示计数</span><br><span class="line">    &#123;&#123; post_template.render(page, false, true) &#125;&#125; </span><br><span class="line">    &lt;div class=&quot;post-spread&quot;&gt;</span><br><span class="line">      &#123;% if theme.jiathis %&#125;</span><br><span class="line">        &#123;% include &apos;_partials/share/jiathis.swig&apos; %&#125;</span><br><span class="line">      &#123;% elseif theme.duoshuo_shortname and theme.duoshuo_share %&#125;</span><br><span class="line">        &#123;% include &apos;_partials/share/duoshuo_share.swig&apos; %&#125;</span><br><span class="line">      &#123;% endif %&#125;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&#123;% endblock %&#125;</span><br></pre></td></tr></table></figure><p>修改themes/next/layout目录下的index.swig文件</p><p>这个文件是首页的模板</p><p>找到以下代码，给render方法传入刚才第一步中设置的参数。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;% block content %&#125;</span><br><span class="line">  &lt;section id=&quot;posts&quot; class=&quot;posts-expand&quot;&gt;</span><br><span class="line">    &#123;% for post in page.posts %&#125;</span><br><span class="line">       #render方法第二个参数is_index为是否为首页</span><br><span class="line">       #第三个参数is_pv为我们刚才设置的是否显示计数</span><br><span class="line">      &#123;&#123; post_template.render(post, true, false) &#125;&#125;</span><br><span class="line">    &#123;% endfor %&#125;</span><br><span class="line">  &lt;/section&gt;</span><br><span class="line">  &#123;% include &apos;_partials/pagination.swig&apos; %&#125;</span><br><span class="line">&#123;% endblock %&#125;</span><br></pre></td></tr></table></figure><p>至此，我们的站点计数功能就做好了</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;评论系统与站点计数&lt;/p&gt;
+&lt;p&gt;添加 多说 或者 Disqus 第三方评论系统。当同时设置了 多说 和 Disqus 时，优先选择多说。&lt;/p&gt;
+&lt;h3 id=&quot;使用多说&quot;&gt;&lt;a href=&quot;#使用多说&quot; class=&quot;headerlink&quot; title=&quot;使用多说&quot;&gt;&lt;
+      
+    
+    </summary>
+    
+      <category term="hexo" scheme="http://yoursite.com/categories/hexo/"/>
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+      <category term="next" scheme="http://yoursite.com/tags/next/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>标签栏按钮UITabBarItem样式修改</title>
+    <link href="http://yoursite.com/2017/11/21/swift/%E6%A0%87%E7%AD%BE%E6%A0%8F%E6%8C%89%E9%92%AEUITabBarItem%E6%A0%B7%E5%BC%8F%E4%BF%AE%E6%94%B9/"/>
+    <id>http://yoursite.com/2017/11/21/swift/标签栏按钮UITabBarItem样式修改/</id>
+    <published>2017-11-21T04:12:07.000Z</published>
+    <updated>2017-11-21T04:12:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Swift - 标签栏按钮UITabBarItem样式修改</p><p>1，tabBarItem图片的推荐尺寸和最大支持尺寸<br>下面是标签栏（UITabBar）中tab按钮图标分别在1x、2x、3x下不会压缩变形的尺寸：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@1x : 推荐 25 x 25   (最大: 48 x 32)</span><br><span class="line">@2x : 推荐 50 x 50   (最大: 96 x 64)</span><br><span class="line">@3x : 推荐 75 x 75   (最大: 144 x 96)</span><br></pre></td></tr></table></figure><p>2，修改图片和文字的颜色<br>（1）图片和文字同时改变</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//图片文字一起变色</span><br><span class="line">self.tabBar.tintColor = UIColor.orange()</span><br></pre></td></tr></table></figure><p>（2）只改变文字颜色</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//改变文字颜色</span><br><span class="line">UITabBarItem.appearance().setTitleTextAttributes(</span><br><span class="line">    [NSForegroundColorAttributeName: UIColor.gray], forState:.normal)</span><br><span class="line">UITabBarItem.appearance().setTitleTextAttributes(</span><br><span class="line">    [NSForegroundColorAttributeName: UIColor.orange], forState:.selected)</span><br></pre></td></tr></table></figure><p>（3）只改变图片颜色</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">self.tabBar.tintColor = UIColor.orange()</span><br><span class="line">//文字颜色还原</span><br><span class="line">UITabBarItem.appearance().setTitleTextAttributes(</span><br><span class="line">    [NSForegroundColorAttributeName: self.view.tintColor], forState:.selected)</span><br></pre></td></tr></table></figure><p>3，选中时、不选中时使用不同图片<br>默认标签选中、不选中都使用的是同一个图片，只是颜色不同。我们也可使用两张不同图片表示两种状态。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">qq.tabBarItem = UITabBarItem(title: &quot;QQ&quot;, image: UIImage(named: &quot;qq&quot;),</span><br><span class="line">    selectedImage: UIImage(named: &quot;qq_active&quot;))</span><br><span class="line"> </span><br><span class="line">android.tabBarItem = UITabBarItem(title: &quot;Android&quot;, image: UIImage(named: &quot;android&quot;),</span><br><span class="line">    selectedImage: UIImage(named: &quot;android_active&quot;))</span><br></pre></td></tr></table></figure><p>4，使用图片的原始颜色<br>默认不管原图是什么颜色，渲染器都会将渲染成单一颜色，虽说符合现在扁平化的趋势，但有时我们还是想要使用图片原来的样子。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">qq.tabBarItem =  UITabBarItem(title: &quot;QQ&quot;, image: UIImage(named: &quot;qq_color&quot;),</span><br><span class="line">    selectedImage: UIImage(named: &quot;qq_color&quot;)?.imageWithRenderingMode(.AlwaysOriginal))</span><br><span class="line"> </span><br><span class="line">android.tabBarItem =  UITabBarItem(title: &quot;Android&quot;, image: UIImage(named: &quot;android_color&quot;),</span><br><span class="line">    selectedImage: UIImage(named: &quot;android_color&quot;)?.imageWithRenderingMode(.AlwaysOriginal))</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Swift - 标签栏按钮UITabBarItem样式修改&lt;/p&gt;
+&lt;p&gt;1，tabBarItem图片的推荐尺寸和最大支持尺寸&lt;br&gt;下面是标签栏（UITabBar）中tab按钮图标分别在1x、2x、3x下不会压缩变形的尺寸：&lt;/p&gt;
+&lt;figure class=&quot;high
+      
+    
+    </summary>
+    
+      <category term="swift" scheme="http://yoursite.com/categories/swift/"/>
+    
+    
+      <category term="swift" scheme="http://yoursite.com/tags/swift/"/>
+    
+      <category term="UITabBarItem" scheme="http://yoursite.com/tags/UITabBarItem/"/>
+    
+  </entry>
+  
+  <entry>
     <title>ios cocoapods 安装第三方库错误</title>
     <link href="http://yoursite.com/2017/11/21/ios/%E9%94%99%E8%AF%AF%E6%97%A5%E5%BF%97/"/>
     <id>http://yoursite.com/2017/11/21/ios/错误日志/</id>
@@ -299,6 +435,111 @@
   </entry>
   
   <entry>
+    <title>iterm2配色</title>
+    <link href="http://yoursite.com/2017/11/21/mac/iterm2%E9%85%8D%E8%89%B2/"/>
+    <id>http://yoursite.com/2017/11/21/mac/iterm2配色/</id>
+    <published>2017-11-21T04:12:07.000Z</published>
+    <updated>2017-11-21T04:12:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>iterm2配色方案</p><p>#配色来源</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">iterm2官网所提供的配色方案iTerm2-Color-Schemes</span><br><span class="line">在schemes目录下提供了很多种配色方案</span><br><span class="line">altercation大神的solarized配色方案solarized</span><br><span class="line">在这个repo中给出了多个编辑器的配色方案，显然我们需要的是目录</span><br><span class="line">iterm2-colors-solarized下的</span><br><span class="line"></span><br><span class="line">Solarized Dark.itermcolors 和 </span><br><span class="line">Solarized Light.itermcolors</span><br></pre></td></tr></table></figure><p>#步骤</p><ol><li>下载配色方案</li><li><p>首先打开home目录下的 .bash_profile 文件</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">    vim ~/.bash_profile</span><br><span class="line">   ```   </span><br><span class="line">粘进去</span><br></pre></td></tr></table></figure><p> export CLICOLOR=1<br> LSCOLORS=gxfxcxdxbxegedabagacad<br> export PS1=’[\033[01;32m]\u@\h[\033[00m]:[\033[01;36m]\w[\033[00m]\$ ‘</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">保存退出</span><br></pre></td></tr></table></figure><p> source ~/.bash_profile<br> ```<br> 文件生效</p></li><li><p>进入iterm2<br>Preferences-&gt;Profiles-&gt;Terminal 标签下的 Terminal Emulation 选择的是 xterm-new<br>之后在 Preferences-&gt;Profiles-&gt;Colors 标签，点击 Load Preset 列表中的 Import 进行导入配色方案，之后进入text标签，不勾选Draw bold text in bright colors选项。<br>重启iterm2</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;iterm2配色方案&lt;/p&gt;
+&lt;p&gt;#配色来源&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class
+      
+    
+    </summary>
+    
+      <category term="iterm" scheme="http://yoursite.com/categories/iterm/"/>
+    
+    
+      <category term="iterm" scheme="http://yoursite.com/tags/iterm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mac localhost server</title>
+    <link href="http://yoursite.com/2017/11/21/mac/mac%20server/"/>
+    <id>http://yoursite.com/2017/11/21/mac/mac server/</id>
+    <published>2017-11-21T04:12:07.000Z</published>
+    <updated>2017-11-21T04:12:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>1<br>建立方式很简单，直接在终端中运行：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir ~/Sites</span><br></pre></td></tr></table></figure><p>2建立“站点”文件夹之后，检查 /etc/ 文件夹下面是不是有“haibor.conf”这个文件：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/apache2/users/</span><br></pre></td></tr></table></figure><p>如果没有，那么你需要创建一个，取名为“你的名字.conf”，可以使用 vi 或者 nano 这两种编辑器之一来创建。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/apache2/users/你的名字.conf</span><br></pre></td></tr></table></figure><p>创建之后将下面的这几行内容写到上面的 conf 文件中：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;Directory &quot;/Users/你的名字/Sites/&quot;&gt;</span><br><span class="line">    Options Indexes MultiViews</span><br><span class="line">    AllowOverride All</span><br><span class="line">    Order allow,deny</span><br><span class="line">    Allow from all</span><br><span class="line">&lt;/Directory&gt;</span><br></pre></td></tr></table></figure><p>3<br>文件保存之后，给它赋予相应的权限：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 755 /etc/apache2/users/你的名字.conf</span><br></pre></td></tr></table></figure><p>4接下来重启 Apache，以使该配置文件生效：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apachectl restart</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;1&lt;br&gt;建立方式很简单，直接在终端中运行：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;
+      
+    
+    </summary>
+    
+      <category term="mac" scheme="http://yoursite.com/categories/mac/"/>
+    
+    
+      <category term="mac" scheme="http://yoursite.com/tags/mac/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mac恢复允许“任何来源”的选项</title>
+    <link href="http://yoursite.com/2017/11/21/mac/mac%E4%BB%BB%E4%BD%95%E6%9D%A5%E6%BA%90/"/>
+    <id>http://yoursite.com/2017/11/21/mac/mac任何来源/</id>
+    <published>2017-11-21T04:12:07.000Z</published>
+    <updated>2017-11-21T04:12:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>恢复允许“任何来源”的选项</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">我们可以在终端中使用 spctl 命令来实现：</span><br><span class="line"></span><br><span class="line">　　sudo spctl --master-disable</span><br></pre></td></tr></table></figure><p>输入上述命令之后，我们可以发现，久违的“任何来源”回来了：</p><p>如果在系统偏好设置的“安全与隐私”中重新选中允许 App Store 和被认可的开发者 App，即重新打开 Gatekeeper 后，允许“任何来源”App 的选项会再次消失，可运行上述命令再次关闭 Gatekeeper。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;恢复允许“任何来源”的选项&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;
+      
+    
+    </summary>
+    
+      <category term="mac" scheme="http://yoursite.com/categories/mac/"/>
+    
+    
+      <category term="mac" scheme="http://yoursite.com/tags/mac/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>隐藏dsstore</title>
+    <link href="http://yoursite.com/2017/11/21/mac/%E9%9A%90%E8%97%8Fdsstore/"/>
+    <id>http://yoursite.com/2017/11/21/mac/隐藏dsstore/</id>
+    <published>2017-11-21T04:12:07.000Z</published>
+    <updated>2017-11-21T04:12:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>隐藏dsstore</p><p>隐藏文件的方法解决了 mac系统如何显示和隐藏文件 苹果Mac OS X操作系统下，隐藏文件是否显示有很多种设置方法，最简单的要算在Mac终端输入命令。显示/隐藏Mac隐藏文件命令如下(注意其中的空格并且区分大小写)： 显示Mac隐藏文件的命令：defaults write com.apple.finder AppleShowAllFiles -bool true 隐藏Mac隐藏文件的命令：defaults write com.apple.finder AppleShowAllFiles -bool false 或者 显示Mac隐藏文件的命令：defaults write com.apple.finder AppleShowAllFiles YES 隐藏Mac隐藏文件的命令：defaults write com.apple.finder AppleShowAllFiles NO 输完单击Enter键，退出终端，重新启动Finder就可以了 重启Finder：鼠标单击窗口左上角的苹果标志–&gt;强制退出–&gt;Finder–&gt;重新启动 别处转来的</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;隐藏dsstore&lt;/p&gt;
+&lt;p&gt;隐藏文件的方法解决了 mac系统如何显示和隐藏文件 苹果Mac OS X操作系统下，隐藏文件是否显示有很多种设置方法，最简单的要算在Mac终端输入命令。显示/隐藏Mac隐藏文件命令如下(注意其中的空格并且区分大小写)： 显示Mac隐藏文件的
+      
+    
+    </summary>
+    
+      <category term="mac" scheme="http://yoursite.com/categories/mac/"/>
+    
+    
+      <category term="mac" scheme="http://yoursite.com/tags/mac/"/>
+    
+  </entry>
+  
+  <entry>
     <title>mysql 更改密码</title>
     <link href="http://yoursite.com/2017/11/21/mysql/mysql%E6%9B%B4%E6%94%B9%E5%AF%86%E7%A0%81/"/>
     <id>http://yoursite.com/2017/11/21/mysql/mysql更改密码/</id>
@@ -321,251 +562,6 @@
     
     
       <category term="mysql" scheme="http://yoursite.com/tags/mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>node.js 版本升级</title>
-    <link href="http://yoursite.com/2017/11/21/nodejs/node.js%20%E7%89%88%E6%9C%AC%E5%8D%87%E7%BA%A7/"/>
-    <id>http://yoursite.com/2017/11/21/nodejs/node.js 版本升级/</id>
-    <published>2017-11-21T04:12:07.000Z</published>
-    <updated>2017-11-21T04:12:07.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>一行命令搞定node.js 版本升级</p><p>首先安装n模块：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g n</span><br></pre></td></tr></table></figure><p>第二步：<br>升级node.js到最新稳定版</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">n stable</span><br></pre></td></tr></table></figure><p>n后面也可以跟随版本号比如：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">n v0.10.26</span><br><span class="line">或</span><br><span class="line">n 0.10.26</span><br></pre></td></tr></table></figure><p>另外分享几个npm的常用命令</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">npm -v          #显示版本，检查npm 是否正确安装。</span><br><span class="line"></span><br><span class="line">npm install express   #安装express模块</span><br><span class="line"></span><br><span class="line">npm install -g express  #全局安装express模块</span><br><span class="line"></span><br><span class="line">npm list         #列出已安装模块</span><br><span class="line"></span><br><span class="line">npm show express     #显示模块详情</span><br><span class="line"></span><br><span class="line">npm update        #升级当前目录下的项目的所有模块</span><br><span class="line"></span><br><span class="line">npm update express    #升级当前目录下的项目的指定模块</span><br><span class="line"></span><br><span class="line">npm update -g express  #升级全局安装的express模块</span><br><span class="line"></span><br><span class="line">npm uninstall express  #删除指定的模块</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;一行命令搞定node.js 版本升级&lt;/p&gt;
-&lt;p&gt;首先安装n模块：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;
-      
-    
-    </summary>
-    
-      <category term="node.js" scheme="http://yoursite.com/categories/node-js/"/>
-    
-    
-      <category term="node.js" scheme="http://yoursite.com/tags/node-js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python Django简介</title>
-    <link href="http://yoursite.com/2017/11/21/python/Django%E7%AE%80%E4%BB%8B/"/>
-    <id>http://yoursite.com/2017/11/21/python/Django简介/</id>
-    <published>2017-11-21T04:12:07.000Z</published>
-    <updated>2017-11-21T04:12:07.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Django 简介<br>让我们一览 Django 全貌<br>urls.py<br>网址入口，关联到对应的views.py中的一个函数（或者generic类），访问网址就对应一个函数。</p><p>views.py<br>处理用户发出的请求，从urls.py中对应过来, 通过渲染templates中的网页可以将显示内容，比如登陆后的用户名，用户请求的数据，输出到网页。</p><p>models.py<br>与数据库操作相关，存入或读取数据时用到这个，当然用不到数据库的时候 你可以不使用。</p><p>forms.py<br>表单，用户在浏览器上输入数据提交，对数据的验证工作以及输入框的生成等工作，当然你也可以不使用。</p><p>templates 文件夹</p><p>views.py 中的函数渲染templates中的Html模板，得到动态内容的网页，当然可以用缓存来提高速度。</p><p>admin.py<br>后台，可以用很少量的代码就拥有一个强大的后台。</p><p>settings.py<br>Django 的设置，配置文件，比如 DEBUG 的开关，静态文件的位置等。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Django 简介&lt;br&gt;让我们一览 Django 全貌&lt;br&gt;urls.py&lt;br&gt;网址入口，关联到对应的views.py中的一个函数（或者generic类），访问网址就对应一个函数。&lt;/p&gt;
-&lt;p&gt;views.py&lt;br&gt;处理用户发出的请求，从urls.py中对应过来,
-      
-    
-    </summary>
-    
-      <category term="python django" scheme="http://yoursite.com/categories/python-django/"/>
-    
-    
-      <category term="python django" scheme="http://yoursite.com/tags/python-django/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python django新建项目</title>
-    <link href="http://yoursite.com/2017/11/21/python/%E5%BD%93%E6%8F%90%E7%A4%BA%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8/"/>
-    <id>http://yoursite.com/2017/11/21/python/当提示端口被占用/</id>
-    <published>2017-11-21T04:12:07.000Z</published>
-    <updated>2017-11-21T04:12:07.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>1 新建一个 django project</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">django-admin.py startproject project-name</span><br></pre></td></tr></table></figure><p>一个 project 为一个项目，project-name 项目名称，改成你自己的，要符合Python 的变量命名规则（以下划线或字母开头）</p><p>2 新建 app</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python manage.py startapp app-name</span><br><span class="line">或 django-admin.py startapp app-name</span><br></pre></td></tr></table></figure><p>一般一个项目有多个app, 当然通用的app也可以在多个项目中使用。</p><p>3 同步数据库</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">python manage.py syncdb</span><br><span class="line"> </span><br><span class="line">注意：Django 1.7.1及以上的版本需要用以下命令</span><br><span class="line">python manage.py makemigrations</span><br><span class="line">python manage.py migrate</span><br></pre></td></tr></table></figure><p>这种方法可以创建表，当你在models.py中新增了类时，运行它就可以自动在数据库中创建表了，不用手动创建。</p><p>备注：对已有的 models 进行修改，Django 1.7之前的版本的Django都是无法自动更改表结构的，不过有第三方工具 south,详见 Django 数据库迁移 一节。</p><p>4 使用开发服务器<br>开发服务器，即开发时使用，一般修改代码后会自动重启，方便调试和开发，但是由于性能问题，建议只用来测试，不要用在生产环境。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">python manage.py runserver</span><br><span class="line"> </span><br><span class="line"># 当提示端口被占用的时候，可以用其它端口：</span><br><span class="line">python manage.py runserver 8001</span><br><span class="line">python manage.py runserver 9999</span><br><span class="line">（当然也可以kill掉占用端口的进程）</span><br><span class="line"> </span><br><span class="line"># 监听所有可用 ip （电脑可能有一个或多个内网ip，一个或多个外网ip，即有多个ip地址）</span><br><span class="line">python manage.py runserver 0.0.0.0:8000</span><br><span class="line"># 如果是外网或者局域网电脑上可以用其它电脑查看开发服务器</span><br><span class="line"># 访问对应的 ip加端口，比如 http://172.16.20.2:8000</span><br></pre></td></tr></table></figure><p> 5 清空数据库</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py flush</span><br></pre></td></tr></table></figure><p>此命令会询问是 yes 还是 no, 选择 yes 会把数据全部清空掉，只留下空表。</p><p>6  创建超级管理员</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">python manage.py createsuperuser</span><br><span class="line"> </span><br><span class="line"># 按照提示输入用户名和对应的密码就好了邮箱可以留空，用户名和密码必填</span><br><span class="line"> </span><br><span class="line"># 修改 用户密码可以用：</span><br><span class="line">python manage.py changepassword username</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;1 新建一个 django project&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;t
-      
-    
-    </summary>
-    
-      <category term="python django" scheme="http://yoursite.com/categories/python-django/"/>
-    
-    
-      <category term="python django" scheme="http://yoursite.com/tags/python-django/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Swift 图片下载</title>
-    <link href="http://yoursite.com/2017/11/21/swift/Kingfisher/"/>
-    <id>http://yoursite.com/2017/11/21/swift/Kingfisher/</id>
-    <published>2017-11-21T04:12:07.000Z</published>
-    <updated>2017-11-21T04:12:07.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Kingfisher</p><p>oc有个非常强大图片缓存处理的库SDWebImage，swift中现在也有个不错的图片处理的库—-Kingfisher</p><p>Kingfisher库下载图片默认是带缓存的</p><p>最简单的使用</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import Kingfisher</span><br><span class="line">imageView.kf_setImageWithURL(NSURL(string: &quot;http//www.baidu.com.png&quot;)!)</span><br></pre></td></tr></table></figure><p>配置 https</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">在info.plist里加上下面这段</span><br><span class="line">&lt;dict&gt;</span><br><span class="line">    &lt;key&gt;NSAllowsArbitraryLoads&lt;/key&gt;</span><br><span class="line">    &lt;true/&gt;</span><br><span class="line">&lt;/dict&gt;</span><br><span class="line">&lt;/plist&gt;</span><br><span class="line">去配置一个Dictionary类型的NSAppTransportSecurity 子item是Boolean类型NSAllowsArbitraryLoads value是YES</span><br></pre></td></tr></table></figure><p>添加默认图</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">testImag.kf_setImageWithURL(NSURL(string: &quot;http://your.png&quot;)!, placeholderImage: UIImage(named: &quot;mrt&quot;))</span><br></pre></td></tr></table></figure><p>默认情况下Kingfisher使用url当做cache(缓存)的key。 不过你也可以自定义这个key 。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let URL = NSURL(string: &quot;http://your.png&quot;)!</span><br><span class="line">let resource = Resource(downloadURL: URL, cacheKey: &quot;your_customized_key&quot;)</span><br><span class="line">imageView.kf_setImageWithResource(resource)</span><br></pre></td></tr></table></figure><p>Kingfisher 默认先从内存和硬盘搜 ，如果没找到才去URL down，当然你也可以强制它每次从URL down，忽略缓存</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">imageView.kf_setImageWithURL(NSURL(string: &quot;your_image_url&quot;)!, placeholderImage: nil, optionsInfo: [.Options: KingfisherOptions.ForceRefresh])</span><br></pre></td></tr></table></figure><p>下载和缓存系统</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">let downloader = KingfisherManager.sharedManager.downloader</span><br><span class="line"></span><br><span class="line">// 修改超时时间</span><br><span class="line">downloader.downloadTimeout = 5</span><br><span class="line"></span><br><span class="line">let cache = KingfisherManager.sharedManager.cache</span><br><span class="line"></span><br><span class="line">// 设置硬盘最大缓存50M ，默认无限</span><br><span class="line">cache.maxDiskCacheSize = 50 * 1024 * 1024</span><br><span class="line">// 设置硬盘最大保存3天 ， 默认1周</span><br><span class="line">cache.maxCachePeriodInSecond = 60 * 60 * 24 * 3</span><br><span class="line"></span><br><span class="line">// 获取硬盘缓存的大小</span><br><span class="line">cache.cache.calculateDiskCacheSizeWithCompletionHandler &#123; (size) -&gt; () in      </span><br><span class="line">    println(&quot;disk size in bytes: \(size)&quot;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//清理内存缓存</span><br><span class="line">cache.clearMemoryCache()</span><br><span class="line"></span><br><span class="line">// 清理硬盘缓存，这是一个异步的操作</span><br><span class="line">cache.clearDiskCache()</span><br><span class="line"></span><br><span class="line">// 清理过期或大小超过磁盘限制缓存。这是一个异步的操作</span><br><span class="line">cache.cleanExpiredDiskCache()</span><br></pre></td></tr></table></figure><p>回调</p><p>下载完成后</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">imageView.kf_setImageWithURL(NSURL(string: &quot;your_image_url&quot;)!, </span><br><span class="line">  placeholderImage: nil, </span><br><span class="line">  optionsInfo: nil, </span><br><span class="line">  progressBlock: &#123; (receivedSize, totalSize) -&gt; () in </span><br><span class="line">  println(&quot;Download Progress: \(receivedSize)/\(totalSize)&quot;) &#125;, </span><br><span class="line">  completionHandler: &#123; (image, error, imageURL) -&gt; () in </span><br><span class="line">  println(&quot;Downloaded and set!&quot;) </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Kingfisher&lt;/p&gt;
-&lt;p&gt;oc有个非常强大图片缓存处理的库SDWebImage，swift中现在也有个不错的图片处理的库—-Kingfisher&lt;/p&gt;
-&lt;p&gt;Kingfisher库下载图片默认是带缓存的&lt;/p&gt;
-&lt;p&gt;最简单的使用&lt;/p&gt;
-&lt;figure cla
-      
-    
-    </summary>
-    
-      <category term="swift" scheme="http://yoursite.com/categories/swift/"/>
-    
-    
-      <category term="swift" scheme="http://yoursite.com/tags/swift/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>swift代理delegate</title>
-    <link href="http://yoursite.com/2017/11/21/swift/Swift%E4%BB%A3%E7%90%86/"/>
-    <id>http://yoursite.com/2017/11/21/swift/Swift代理/</id>
-    <published>2017-11-21T04:12:07.000Z</published>
-    <updated>2017-11-21T04:12:07.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>实现代理传值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">import UIKit</span><br><span class="line"></span><br><span class="line">class ViewController: UIViewController,ChangeValueDelegate&#123;</span><br><span class="line">    </span><br><span class="line">    var btn = UIButton()</span><br><span class="line"></span><br><span class="line">    override func viewDidLoad() &#123;</span><br><span class="line">        super.viewDidLoad()</span><br><span class="line"></span><br><span class="line">        self.view.backgroundColor = UIColor.whiteColor()</span><br><span class="line">        </span><br><span class="line">        btn.setTitle(&quot;Change&quot;, forState:.Normal)</span><br><span class="line">        btn.backgroundColor = UIColor.blueColor()</span><br><span class="line">        btn.frame = CGRect(x: 100, y: 100, width: 100, height: 50)</span><br><span class="line">        btn.addTarget(self, action: #selector(change), forControlEvents: .TouchUpInside)</span><br><span class="line">        self.view.addSubview(btn)</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    override func didReceiveMemoryWarning() &#123;</span><br><span class="line">        super.didReceiveMemoryWarning()</span><br><span class="line">        // Dispose of any resources that can be recreated.</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    //    delegate 代理方法</span><br><span class="line">    func changeValue(value: String) &#123;</span><br><span class="line">        </span><br><span class="line">        btn.setTitle(value, forState: .Normal)</span><br><span class="line">        print(&quot;value:\(value)&quot;)</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    //  传值</span><br><span class="line">    func change()&#123;</span><br><span class="line">        </span><br><span class="line">        let vc = ChangeValueViewController()</span><br><span class="line">        vc.delegate = self</span><br><span class="line">        self.navigationController?.pushViewController(vc, animated: true)</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>协议</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">protocol ChangeValueDelegate &#123;</span><br><span class="line">    </span><br><span class="line">    func changeValue(value:String)</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>使用代理传值</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class ChangeValueViewController: UIViewController &#123;</span><br><span class="line">    </span><br><span class="line">    var delegate:ChangeValueDelegate?</span><br><span class="line">    </span><br><span class="line">    override func viewDidLoad() &#123;</span><br><span class="line">        super.viewDidLoad()</span><br><span class="line"></span><br><span class="line">        // Do any additional setup after loading the view.</span><br><span class="line">        self.view.backgroundColor = UIColor.whiteColor()</span><br><span class="line">        </span><br><span class="line">        self.delegate?.changeValue(&quot;ok&quot;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    override func didReceiveMemoryWarning() &#123;</span><br><span class="line">        super.didReceiveMemoryWarning()</span><br><span class="line">        // Dispose of any resources that can be recreated.</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;实现代理传值&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;b
-      
-    
-    </summary>
-    
-      <category term="swift" scheme="http://yoursite.com/categories/swift/"/>
-    
-    
-      <category term="swift" scheme="http://yoursite.com/tags/swift/"/>
-    
-      <category term="delegate" scheme="http://yoursite.com/tags/delegate/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>swift_ios_开发之UINavigationController的常用属性</title>
-    <link href="http://yoursite.com/2017/11/21/swift/Swift_ios_%E5%BC%80%E5%8F%91%E4%B9%8BUINavigationController%E7%9A%84%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7/"/>
-    <id>http://yoursite.com/2017/11/21/swift/Swift_ios_开发之UINavigationController的常用属性/</id>
-    <published>2017-11-21T04:12:07.000Z</published>
-    <updated>2017-11-21T04:12:07.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Swift开发之UINavigationController的常用属性</p><p>1.导航栏是否隐藏</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self.navigationController?.navigationBar.hidden = false</span><br></pre></td></tr></table></figure><p>2.导航栏的最底部颜色设置</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//backgroundColor 是最底下的color </span><br><span class="line">self.navigationController?.navigationBar.backgroundColor = UIColor.redColor()</span><br></pre></td></tr></table></figure><p>3.导航栏的表层颜色，即首先看到的颜色</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//barTintColor 是表层颜色</span><br><span class="line">self.navigationController?.navigationBar.barTintColor = UIColor.grayColor()</span><br></pre></td></tr></table></figure><p>4.导航栏中间标题title的颜色，大小，字体设置</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.blueColor(),NSFontAttributeName:UIFont(name: &quot;Heiti SC&quot;, size: 24.0)!]</span><br></pre></td></tr></table></figure><p>5.导航栏隐藏左边backitem，即leftbarbuttonitem</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//完全隐藏backItem//</span><br><span class="line">self.navigationItem.setHidesBackButton(true, animated: true)</span><br></pre></td></tr></table></figure><p>6.导航栏leftbarbuttonitem的颜色设置</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swiftself.navigationController?.navigationBar.tintColor = UIColor.whiteColor()</span><br></pre></td></tr></table></figure><p>7.导航栏leftbarbuttonitem的字体，颜色，大小设置</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self.navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.blueColor(),NSFontAttributeName: UIFont(name: &quot;Chalkduster&quot;, size: 13)!], forState: UIControlState.Normal)</span><br></pre></td></tr></table></figure><p>8.导航栏重新定义leftbarbuttonitem</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//重新定义backItem，将覆盖原来的BackItem.与storyboard中拖入一个item，效果一样。都是覆盖原来的backitem。</span><br><span class="line"></span><br><span class="line">//第一种代码定义方式</span><br><span class="line">self.navigationItem.setLeftBarButtonItem(UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: &quot;function&quot;), animated: true)</span><br><span class="line"></span><br><span class="line">//第二种代码定义方式 </span><br><span class="line">self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: &quot;function&quot;)</span><br><span class="line"></span><br><span class="line">//第三种代码定义的方式</span><br><span class="line">self.navigationItem.setLeftBarButtonItem(UIBarButtonItem(title: &quot;&lt;Grandre&quot;, style: UIBarButtonItemStyle.Plain, target: self, action: &quot;function&quot;), animated: true)</span><br></pre></td></tr></table></figure><p>9.导航栏设置成透明</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//将导航栏设置成透明</span><br><span class="line">self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)</span><br><span class="line">self.navigationController!.navigationBar.shadowImage = UIImage()</span><br><span class="line">self.navigationController?.navigationBar.translucent = true</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Swift开发之UINavigationController的常用属性&lt;/p&gt;
-&lt;p&gt;1.导航栏是否隐藏&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;
-      
-    
-    </summary>
-    
-      <category term="swift" scheme="http://yoursite.com/categories/swift/"/>
-    
-    
-      <category term="swift" scheme="http://yoursite.com/tags/swift/"/>
-    
-      <category term="ios" scheme="http://yoursite.com/tags/ios/"/>
-    
-      <category term="UINavigationController" scheme="http://yoursite.com/tags/UINavigationController/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>swift - 状态栏</title>
-    <link href="http://yoursite.com/2017/11/21/swift/Swift%E7%8A%B6%E6%80%81%E6%A0%8F/"/>
-    <id>http://yoursite.com/2017/11/21/swift/Swift状态栏/</id>
-    <published>2017-11-21T04:12:07.000Z</published>
-    <updated>2017-11-21T04:12:07.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>状态栏</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> //状态栏高度</span><br><span class="line"> let statusHeight = UIApplication.shared.statusBarFrame.height</span><br><span class="line">//导航栏高度</span><br><span class="line">  let navigationHeight = self.navigationController?.navigationBar.frame.size.height</span><br></pre></td></tr></table></figure><p>Swift - 隐藏状态栏（statusBar）的两种方法</p><p>1，全局设置</p><p>这种方法修改后，整个应用的所有视图都不显示状态栏。</p><p>（1）在 Info.plist 中添加如下配置</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;key&gt;UIViewControllerBasedStatusBarAppearance&lt;/key&gt;</span><br><span class="line">&lt;false/&gt;</span><br></pre></td></tr></table></figure><p>（2）在 General -&gt; Deployment Info 中，将 Hide status bar 勾选。</p><p>2，在视图控制器中单独设置</p><p>这用方法适合于只隐藏部分页面的状态栏。我们在需要隐藏 statusbar 的 ViewController 中添加如下代码即可。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import UIKit</span><br><span class="line"> </span><br><span class="line">class ViewController: UIViewController &#123;</span><br><span class="line">     </span><br><span class="line">    //隐藏状态栏</span><br><span class="line">    override var prefersStatusBarHidden: Bool &#123;</span><br><span class="line">        return true</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">    override func didReceiveMemoryWarning() &#123;</span><br><span class="line">        super.didReceiveMemoryWarning()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;状态栏&lt;/p&gt;
- &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br
-      
-    
-    </summary>
-    
-      <category term="swift" scheme="http://yoursite.com/categories/swift/"/>
-    
-    
-      <category term="swift" scheme="http://yoursite.com/tags/swift/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>swift-UISreen类的屏幕大小</title>
-    <link href="http://yoursite.com/2017/11/21/swift/UISreen%E7%B1%BB%E7%9A%84%E5%B1%8F%E5%B9%95%E5%A4%A7%E5%B0%8F/"/>
-    <id>http://yoursite.com/2017/11/21/swift/UISreen类的屏幕大小/</id>
-    <published>2017-11-21T04:12:07.000Z</published>
-    <updated>2017-11-21T04:12:07.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>获取 UISreen类的屏幕大小</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//获取屏幕大小</span><br><span class="line">var screenBounds:CGRect = UIScreen.mainScreen().bounds</span><br><span class="line">println(screenBounds) //iPhone6输出：（0.0,0.0,375.0,667.0）</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;获取 UISreen类的屏幕大小&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;
-      
-    
-    </summary>
-    
-      <category term="swift" scheme="http://yoursite.com/categories/swift/"/>
-    
-    
-      <category term="swift" scheme="http://yoursite.com/tags/swift/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>UIView的常用属性和常用方法总结</title>
-    <link href="http://yoursite.com/2017/11/21/swift/UIView%E7%9A%84%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7%E5%92%8C%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/"/>
-    <id>http://yoursite.com/2017/11/21/swift/UIView的常用属性和常用方法/</id>
-    <published>2017-11-21T04:12:07.000Z</published>
-    <updated>2017-11-21T04:12:07.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>UIView的常用属性和常用方法总结</p><p>1，UIView常用的一些属性如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">frame：相对父视图的坐标和大小（x,y,w,h）</span><br><span class="line">bounds：相对自身的坐标和大小，所以bounds的x和y永远为0（0,0,w,h）</span><br><span class="line">center：相对父视图的中点坐标</span><br><span class="line">transform：控制视图的放大缩小和旋转</span><br><span class="line">superview：获取父视图</span><br><span class="line">subviews：获取所有子视图</span><br><span class="line">alpha：视图的透明度（0.0-1.0）</span><br><span class="line">tag：视图的标志（Int类型，默认等于0），设置后，可以通过viewWithTag方法拿到这个视图</span><br><span class="line">`</span><br></pre></td></tr></table></figure><p>2，UIView的常用方法如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">func removeFromSuperview()：将视图从父视图中移除</span><br><span class="line">func insertSubview(view:UIView, atIndex index:Int)：指定一个位置插入一个视图，index越小，视图越往下</span><br><span class="line">func exchangeSubviewAtIndex(index1:Int, withSubviewAtIndex index2:Int)：将index1和index2位置的两个视图互换位置</span><br><span class="line">func addSubview(view:UIView)：添加视图到父视图</span><br><span class="line">func insertSubview(view:UIView,belowSubview siblingSubview:UIView)：在指定视图的下面插入视图</span><br><span class="line">func insertSubview(view:UIVIew,aboveSubview siblingSubview:UIView)：在指定视图上面插入视图</span><br><span class="line">func bringSubviewToFront(view:UIView)：把视图移到最顶层</span><br><span class="line">func sendSubviewToBack(view:UIView)：把视图移到最底层</span><br><span class="line">func viewWithTag(tag:Int)-&gt;UIView?：根据tag值获取视图</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;UIView的常用属性和常用方法总结&lt;/p&gt;
-&lt;p&gt;1，UIView常用的一些属性如下：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;
-      
-    
-    </summary>
-    
-      <category term="swift" scheme="http://yoursite.com/categories/swift/"/>
-    
-    
-      <category term="swift" scheme="http://yoursite.com/tags/swift/"/>
     
   </entry>
   

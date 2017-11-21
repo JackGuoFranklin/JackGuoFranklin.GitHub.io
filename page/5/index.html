@@ -58,7 +58,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -68,62 +68,6 @@
 </header>
       <div class="outer">
         <section id="main">
-  
-    <article id="post-swift/iosQR二维码" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/21/swift/iosQR二维码/" class="article-date">
-  <time datetime="2017-11-21T04:12:07.000Z" itemprop="datePublished">2017-11-21</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/swift/">swift</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/21/swift/iosQR二维码/">Swift 二维码QRCode</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Swift 二维码QRCode<br>1，直接读取图片中的二维码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">let qrcodeImg =  UIImage(named: &quot;codeBg.png&quot;)</span><br><span class="line">      let ciImage:CIImage=CIImage(image:qrcodeImg!)!</span><br><span class="line">      let context = CIContext(options: nil)</span><br><span class="line">      let detector:CIDetector=CIDetector(ofType: CIDetectorTypeQRCode,</span><br><span class="line">          context: context, options: [CIDetectorAccuracy:CIDetectorAccuracyHigh])</span><br><span class="line">      let features=detector.featuresInImage(ciImage)</span><br><span class="line">      print(&quot;扫描到二维码个数：\(features.count)&quot;)</span><br><span class="line">      //遍历所有的二维码，并框出</span><br><span class="line">      for feature in features as! [CIQRCodeFeature] &#123;</span><br><span class="line">          print(feature.messageString)</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
-<p>2，从相册中选择图片读取二维码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//选取相册</span><br><span class="line">//判断设置是否支持图片库</span><br><span class="line">       if UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary)&#123;</span><br><span class="line">           //初始化图片控制器</span><br><span class="line">           let picker = UIImagePickerController()</span><br><span class="line">           //设置代理</span><br><span class="line">           picker.delegate = self</span><br><span class="line">           //指定图片控制器类型</span><br><span class="line">           picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary</span><br><span class="line">           //弹出控制器，显示界面</span><br><span class="line">           self.presentViewController(picker, animated: true, completion: &#123;</span><br><span class="line">               () -&gt; Void in</span><br><span class="line">           &#125;)</span><br><span class="line">       &#125;else&#123;</span><br><span class="line">           print(&quot;读取相册错误&quot;)</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
-<p>//选择图片成功后代理</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">//选择图片成功后代理</span><br><span class="line">  func imagePickerController(picker: UIImagePickerController,</span><br><span class="line">      didFinishPickingMediaWithInfo info: [String : AnyObject]) &#123;</span><br><span class="line">      //获取选择的原图</span><br><span class="line">      let image = info[UIImagePickerControllerOriginalImage] as! UIImage</span><br><span class="line">      //二维码读取</span><br><span class="line">      let ciImage:CIImage=CIImage(image:image)!</span><br><span class="line">      let context = CIContext(options: nil)</span><br><span class="line">      let detector:CIDetector=CIDetector(ofType: CIDetectorTypeQRCode,</span><br><span class="line">          context: context, options: [CIDetectorAccuracy:CIDetectorAccuracyHigh])</span><br><span class="line">      let features=detector.featuresInImage(ciImage)</span><br><span class="line">      print(&quot;扫描到二维码个数：\(features.count)&quot;)</span><br><span class="line">      //遍历所有的二维码，并框出</span><br><span class="line">      for feature in features as! [CIQRCodeFeature] &#123;</span><br><span class="line">          print(feature.messageString)</span><br><span class="line">      &#125;</span><br><span class="line">      //图片控制器退出</span><br><span class="line">      picker.dismissViewControllerAnimated(true, completion: &#123;</span><br><span class="line">          () -&gt; Void in</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>3，使用摄像头扫描读取二维码</p>
-<p>（1）扫描主要使用的是AVFoundation，用起来方便简单</p>
-<p>（2）通过 AVCaptureMetadataOutput 的 rectOfInterest 属性，可以设置探测探测区域。同时给这个探测区域添加个方框，只有在框中的二维码才会被扫描到。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var scanRectView:UIView!</span><br><span class="line">  var device:AVCaptureDevice!</span><br><span class="line">  var input:AVCaptureDeviceInput!</span><br><span class="line">  var output:AVCaptureMetadataOutput!</span><br><span class="line">  var session:AVCaptureSession!</span><br><span class="line">  var preview:AVCaptureVideoPreviewLayer!</span><br></pre></td></tr></table></figure>
-<p>//通过摄像头扫描</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">do&#123;</span><br><span class="line">        self.device = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)</span><br><span class="line">        self.input = try AVCaptureDeviceInput(device: device)</span><br><span class="line">        self.output = AVCaptureMetadataOutput()</span><br><span class="line">        output.setMetadataObjectsDelegate(self, queue: dispatch_get_main_queue())</span><br><span class="line">        self.session = AVCaptureSession()</span><br><span class="line">        if UIScreen.mainScreen().bounds.size.height&lt;500 &#123;</span><br><span class="line">            self.session.sessionPreset = AVCaptureSessionPreset640x480</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            self.session.sessionPreset = AVCaptureSessionPresetHigh</span><br><span class="line">        &#125;</span><br><span class="line">        self.session.addInput(self.input)</span><br><span class="line">        self.session.addOutput(self.output)</span><br><span class="line">        self.output.metadataObjectTypes = [AVMetadataObjectTypeQRCode]</span><br><span class="line">        //计算中间可探测区域</span><br><span class="line">        let windowSize:CGSize = UIScreen.mainScreen().bounds.size;</span><br><span class="line">        let scanSize:CGSize = CGSizeMake(windowSize.width*3/4,</span><br><span class="line">            windowSize.width*3/4);</span><br><span class="line">        var scanRect:CGRect = CGRectMake((windowSize.width-scanSize.width)/2,</span><br><span class="line">            (windowSize.height-scanSize.height)/2, scanSize.width, scanSize.height);</span><br><span class="line">        //计算rectOfInterest 注意x,y交换位置</span><br><span class="line">        scanRect = CGRectMake(scanRect.origin.y/windowSize.height,</span><br><span class="line">            scanRect.origin.x/windowSize.width,</span><br><span class="line">            scanRect.size.height/windowSize.height,</span><br><span class="line">            scanRect.size.width/windowSize.width);</span><br><span class="line">        //设置可探测区域</span><br><span class="line">        self.output.rectOfInterest = scanRect</span><br><span class="line">        self.preview = AVCaptureVideoPreviewLayer(session:self.session)</span><br><span class="line">        self.preview.videoGravity = AVLayerVideoGravityResizeAspectFill</span><br><span class="line">        self.preview.frame = UIScreen.mainScreen().bounds</span><br><span class="line">        self.view.layer.insertSublayer(self.preview, atIndex:0)</span><br><span class="line">        //添加中间的探测区域绿框</span><br><span class="line">        self.scanRectView = UIView();</span><br><span class="line">        self.view.addSubview(self.scanRectView)</span><br><span class="line">        self.scanRectView.frame = CGRectMake(0, 0, scanSize.width, scanSize.height);</span><br><span class="line">        self.scanRectView.center = CGPointMake(</span><br><span class="line">            CGRectGetMidX(UIScreen.mainScreen().bounds),</span><br><span class="line">            CGRectGetMidY(UIScreen.mainScreen().bounds));</span><br><span class="line">        self.scanRectView.layer.borderColor = UIColor.greenColor().CGColor</span><br><span class="line">        self.scanRectView.layer.borderWidth = 1;</span><br><span class="line">        //开始捕获</span><br><span class="line">        self.session.startRunning()</span><br><span class="line">    &#125;catch _ as NSError&#123;</span><br><span class="line">        //打印错误消息</span><br><span class="line">        let errorAlert = UIAlertView(title: &quot;提醒&quot;,</span><br><span class="line">            message: &quot;请在iPhone的\&quot;设置-隐私-相机\&quot;选项中,允许本程序访问您的相机&quot;,</span><br><span class="line">            delegate: self,</span><br><span class="line">            cancelButtonTitle: &quot;确定&quot;)</span><br><span class="line">        errorAlert.show()</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//摄像头捕获</span><br><span class="line">   func captureOutput(captureOutput: AVCaptureOutput!,</span><br><span class="line">       didOutputMetadataObjects metadataObjects: [AnyObject]!,</span><br><span class="line">       fromConnection connection: AVCaptureConnection!) &#123;</span><br><span class="line">       var stringValue:String?</span><br><span class="line">       if metadataObjects.count &gt; 0 &#123;</span><br><span class="line">           let metadataObject = metadataObjects[0] as! AVMetadataMachineReadableCodeObject</span><br><span class="line">           stringValue = metadataObject.stringValue</span><br><span class="line">           if stringValue != nil&#123;</span><br><span class="line">               self.session.stopRunning()</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       self.session.stopRunning()</span><br><span class="line">       //输出结果</span><br><span class="line">       let alertView = UIAlertView(title: &quot;二维码&quot;, message: stringValue,</span><br><span class="line">           delegate: self, cancelButtonTitle: &quot;确定&quot;)</span><br><span class="line">       alertView.show()</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<p>//消息框确认后消失</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">    //消息框确认后消失</span><br><span class="line">    func alertView(alertView: UIAlertView, willDismissWithButtonIndex buttonIndex: Int) &#123;</span><br><span class="line">         //继续扫描</span><br><span class="line">         self.session.startRunning()</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/21/swift/iosQR二维码/" data-id="cja95e25i0022j24i04ai90a2" class="article-share-link">Delen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AVFoundation/">AVFoundation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/QRCode/">QRCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift/">swift</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
   
     <article id="post-hexo/hexo 问题集合" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -163,10 +107,84 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/21/hexo/hexo 问题集合/" data-id="cja95e27l0059j24ilay7r3tw" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2017/11/21/hexo/hexo 问题集合/" data-id="cja95imik000wlf4i66n01xgk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-reactNative/reactNative开发环境搭建" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/21/reactNative/reactNative开发环境搭建/" class="article-date">
+  <time datetime="2017-11-20T16:00:00.000Z" itemprop="datePublished">2017-11-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/reactNative/">reactNative</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/21/reactNative/reactNative开发环境搭建/">reactNative开发环境搭建</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>reactNative开发环境搭建</p>
+<p>#(一) 搭建基本环境（必要）</p>
+<p>##1.安装Homebrew</p>
+<p>打开终端，运行以下语句（中间需要输入密码）进行安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span><br></pre></td></tr></table></figure>
+<p>可通过如下语句查看安装是否成功以及安装的Homebrew版本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew -v</span><br></pre></td></tr></table></figure>
+<p>正常情况下均可安装成功，若出现网络问题安装失败，则运行如下语句清理后再重新安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)&quot;</span><br><span class="line">ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span><br></pre></td></tr></table></figure>
+<p>##2. 使用Homebrew来安装Node.js<br>使用brew安装node.js</p>
+<p>终端运行语句如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install node</span><br></pre></td></tr></table></figure>
+<p>查看安装是否成功以及安装的node.js版本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
+<p>##3. 安装React Native的命令行工具（react-native-cli）</p>
+<p>React Native的命令行工具用于执行创建、初始化、更新项目、运行打包服务（packager）等任务。</p>
+<p>终端运行语句如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g react-native-cli</span><br></pre></td></tr></table></figure>
+<p>若出现错误（可能由于权限不足），则实用以下语句进行安装：</p>
+<p>1<br>sudo npm install -g react-native-cli<br>由于国内网络问题，可以将npm仓库替换为国内镜像</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//将npm仓库替换为国内镜像：</span><br><span class="line">npm config set registry https://registry.npm.taobao.org --global</span><br><span class="line">npm config set disturl https://npm.taobao.org/dist --global</span><br></pre></td></tr></table></figure>
+<p>#(二) 推荐安装的工具</p>
+<p>##1. Watchman<br>Watchman是由Facebook提供的监视文件系统变更的工具。安装此工具可以提高开发时的性能（packager可以快速捕捉文件的变化从而实现实时刷新）。</p>
+<p>终端运行语句安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install watchman</span><br></pre></td></tr></table></figure>
+<p>查看安装是否成功以及安装的watchman版本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">watchman -v</span><br></pre></td></tr></table></figure>
+<p>##2. Flow<br>Flow是一个静态的JS类型检查工具，可方便找出代码中可能存在的类型错误。<br>译注：你在很多示例中看到的奇奇怪怪的冒号问号，以及方法参数中像类型一样的写法，都是属于这个flow工具的语法。这一语法并不属于ES标准，只是Facebook自家的代码规范。</p>
+<p>终端运行语句安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install flow</span><br></pre></td></tr></table></figure>
+<p>查看安装是否成功以及安装的flow版本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flow --version</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/21/reactNative/reactNative开发环境搭建/" data-id="cja95imj7001olf4inpfrxk7s" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/reactNative/">reactNative</a></li></ul>
 
     </footer>
   </div>
@@ -186,7 +204,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categorieën</h3>
+    <h3 class="widget-title">Categories</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/VR/">VR</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/chrome/">chrome</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/github/">github</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ios/">ios</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ios-cocoapods/">ios cocoapods</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iterm/">iterm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mac/">mac</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/python-django/">python django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/reactNative/">reactNative</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/swift/">swift</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机/">计算机</a></li></ul>
     </div>
@@ -196,7 +214,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Labels</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AVFoundation/">AVFoundation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QRCode/">QRCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SnapKit/">SnapKit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UINavigationController/">UINavigationController</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UITabBarItem/">UITabBarItem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UserDefaultstags/">UserDefaultstags</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VR/">VR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-studio/">android studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/animation/">animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cherome/">cherome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chrome/">chrome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cocoapods/">cocoapods</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/delegate/">delegate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git-osChina/">git@osChina</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/">ios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iterm/">iterm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/next/">next</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-django/">python django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reactNative/">reactNative</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sourceTree/">sourceTree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swift/">swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机/">计算机</a></li></ul>
     </div>
@@ -215,7 +233,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archieven</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li></ul>
     </div>
@@ -225,12 +243,12 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recente berichten</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
           <li>
-            <a href="/2017/11/21/reactNative/reactNative开发环境搭建/">reactNative开发环境搭建</a>
+            <a href="/2017/11/21/python/Django简介/">python Django简介</a>
           </li>
         
           <li>

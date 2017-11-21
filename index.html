@@ -58,7 +58,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -69,14 +69,14 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-reactNative/reactNative开发环境搭建" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-python/Django简介" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/11/21/reactNative/reactNative开发环境搭建/" class="article-date">
-  <time datetime="2017-11-21T04:50:50.000Z" itemprop="datePublished">2017-11-21</time>
+    <a href="/2017/11/21/python/Django简介/" class="article-date">
+  <time datetime="2017-11-21T04:12:07.000Z" itemprop="datePublished">2017-11-21</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/reactNative/">reactNative</a>
+    <a class="article-category-link" href="/categories/python-django/">python django</a>
   </div>
 
   </div>
@@ -87,7 +87,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/21/reactNative/reactNative开发环境搭建/">reactNative开发环境搭建</a>
+      <a class="article-title" href="/2017/11/21/python/Django简介/">python Django简介</a>
     </h1>
   
 
@@ -95,46 +95,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>reactNative开发环境搭建</p>
-<p>#(一) 搭建基本环境（必要）</p>
-<p>##1.安装Homebrew</p>
-<p>打开终端，运行以下语句（中间需要输入密码）进行安装：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span><br></pre></td></tr></table></figure>
-<p>可通过如下语句查看安装是否成功以及安装的Homebrew版本：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew -v</span><br></pre></td></tr></table></figure>
-<p>正常情况下均可安装成功，若出现网络问题安装失败，则运行如下语句清理后再重新安装：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)&quot;</span><br><span class="line">ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span><br></pre></td></tr></table></figure>
-<p>##2. 使用Homebrew来安装Node.js<br>使用brew安装node.js</p>
-<p>终端运行语句如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install node</span><br></pre></td></tr></table></figure>
-<p>查看安装是否成功以及安装的node.js版本：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
-<p>##3. 安装React Native的命令行工具（react-native-cli）</p>
-<p>React Native的命令行工具用于执行创建、初始化、更新项目、运行打包服务（packager）等任务。</p>
-<p>终端运行语句如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g react-native-cli</span><br></pre></td></tr></table></figure>
-<p>若出现错误（可能由于权限不足），则实用以下语句进行安装：</p>
-<p>1<br>sudo npm install -g react-native-cli<br>由于国内网络问题，可以将npm仓库替换为国内镜像</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//将npm仓库替换为国内镜像：</span><br><span class="line">npm config set registry https://registry.npm.taobao.org --global</span><br><span class="line">npm config set disturl https://npm.taobao.org/dist --global</span><br></pre></td></tr></table></figure>
-<p>#(二) 推荐安装的工具</p>
-<p>##1. Watchman<br>Watchman是由Facebook提供的监视文件系统变更的工具。安装此工具可以提高开发时的性能（packager可以快速捕捉文件的变化从而实现实时刷新）。</p>
-<p>终端运行语句安装：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install watchman</span><br></pre></td></tr></table></figure>
-<p>查看安装是否成功以及安装的watchman版本：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">watchman -v</span><br></pre></td></tr></table></figure>
-<p>##2. Flow<br>Flow是一个静态的JS类型检查工具，可方便找出代码中可能存在的类型错误。<br>译注：你在很多示例中看到的奇奇怪怪的冒号问号，以及方法参数中像类型一样的写法，都是属于这个flow工具的语法。这一语法并不属于ES标准，只是Facebook自家的代码规范。</p>
-<p>终端运行语句安装：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install flow</span><br></pre></td></tr></table></figure>
-<p>查看安装是否成功以及安装的flow版本：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flow --version</span><br></pre></td></tr></table></figure>
+        <p>Django 简介<br>让我们一览 Django 全貌<br>urls.py<br>网址入口，关联到对应的views.py中的一个函数（或者generic类），访问网址就对应一个函数。</p>
+<p>views.py<br>处理用户发出的请求，从urls.py中对应过来, 通过渲染templates中的网页可以将显示内容，比如登陆后的用户名，用户请求的数据，输出到网页。</p>
+<p>models.py<br>与数据库操作相关，存入或读取数据时用到这个，当然用不到数据库的时候 你可以不使用。</p>
+<p>forms.py<br>表单，用户在浏览器上输入数据提交，对数据的验证工作以及输入框的生成等工作，当然你也可以不使用。</p>
+<p>templates 文件夹</p>
+<p>views.py 中的函数渲染templates中的Html模板，得到动态内容的网页，当然可以用缓存来提高速度。</p>
+<p>admin.py<br>后台，可以用很少量的代码就拥有一个强大的后台。</p>
+<p>settings.py<br>Django 的设置，配置文件，比如 DEBUG 的开关，静态文件的位置等。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/21/reactNative/reactNative开发环境搭建/" data-id="cja95e28b005vj24ildhpuuq9" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2017/11/21/python/Django简介/" data-id="cja95imj2001jlf4i2o6mp5p8" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/reactNative/">reactNative</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python-django/">python django</a></li></ul>
 
     </footer>
   </div>
@@ -178,7 +154,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/21/hello-world/" data-id="cja95e2380000j24ifpj8b8eg" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2017/11/21/hello-world/" data-id="cja95imgs0000lf4iqziyurzd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -237,7 +213,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/21/VR/webgl和three/" data-id="cja95e23t0004j24iyvz7d8tq" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2017/11/21/VR/webgl和three/" data-id="cja95imhy0004lf4izsi090r5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VR/">VR</a></li></ul>
@@ -290,7 +266,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/21/book/计算机书籍常用/" data-id="cja95e23y0007j24ip57zr8qb" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2017/11/21/book/计算机书籍常用/" data-id="cja95imi20007lf4i2d959qef" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/计算机/">计算机</a></li></ul>
@@ -340,7 +316,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/21/chrome/Chrome使用技巧/" data-id="cja95e2400008j24ih0srlnrk" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2017/11/21/chrome/Chrome使用技巧/" data-id="cja95imi40008lf4in0fyr22n" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cherome/">cherome</a></li></ul>
@@ -398,7 +374,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/21/github/github插件1/" data-id="cja95e2420009j24i2ikoux97" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2017/11/21/github/github插件1/" data-id="cja95imi50009lf4it9l2gt8u" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/chrome/">chrome</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li></ul>
@@ -446,7 +422,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/21/github/github插件2/" data-id="cja95e244000cj24in0t97sqk" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2017/11/21/github/github插件2/" data-id="cja95imi6000clf4ijpmifes8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/chrome/">chrome</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li></ul>
@@ -493,7 +469,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/21/github/github插件3/" data-id="cja95e24r0013j24is021k0bu" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2017/11/21/github/github插件3/" data-id="cja95imi8000dlf4in9k5m4km" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/chrome/">chrome</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li></ul>
@@ -545,7 +521,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/21/github/创建Git仓库osChina/" data-id="cja95e24s0014j24i704p37pj" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2017/11/21/github/创建Git仓库osChina/" data-id="cja95imia000hlf4imylpql7w" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git-osChina/">git@osChina</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sourceTree/">sourceTree</a></li></ul>
@@ -557,14 +533,14 @@
 
 
   
-    <article id="post-ios/错误日志" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-hexo/HexoNext配置主题" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/11/21/ios/错误日志/" class="article-date">
+    <a href="/2017/11/21/hexo/HexoNext配置主题/" class="article-date">
   <time datetime="2017-11-21T04:12:07.000Z" itemprop="datePublished">2017-11-21</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/ios-cocoapods/">ios cocoapods</a>
+    <a class="article-category-link" href="/categories/hexo/">hexo</a>
   </div>
 
   </div>
@@ -575,7 +551,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/21/ios/错误日志/">ios cocoapods 安装第三方库错误</a>
+      <a class="article-title" href="/2017/11/21/hexo/HexoNext配置主题/">Hexo Next 配置主观</a>
     </h1>
   
 
@@ -583,19 +559,79 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#错误日志</p>
-<p>###The dependency <code>***</code> is not used in any concrete target.<br>在Podfile文件中必须指明</p>
-<p>target “**” do </p>
-<p>pod “<em>**</em>“</p>
-<p>end</p>
+        <h3 id="语言设置"><a href="#语言设置" class="headerlink" title="语言设置"></a>语言设置</h3><p>在主目录下_config.yml 中配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">language: zh-Hans</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>语言</th>
+<th>代码</th>
+<th>设定值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>English</td>
+<td>en</td>
+<td>language: en</td>
+</tr>
+<tr>
+<td>简体中文</td>
+<td>zh-Hans</td>
+<td>language: zh-Hans</td>
+</tr>
+</tbody>
+</table>
+<h3 id="菜单设置"><a href="#菜单设置" class="headerlink" title="菜单设置"></a>菜单设置</h3><p>菜单配置在 主题配置文件的 menu</p>
+<p>菜单示例配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: /</span><br><span class="line">  archives: /archives</span><br><span class="line">  #about: /about</span><br><span class="line">  #categories: /categories</span><br><span class="line">  tags: /tags</span><br><span class="line">  #commonweal: /404.html</span><br></pre></td></tr></table></figure>
+<h3 id="侧栏设置"><a href="#侧栏设置" class="headerlink" title="侧栏设置"></a>侧栏设置</h3><p>配置选项</p>
+<ul>
+<li>post - 默认行为，在文章页面（拥有目录列表）时显示</li>
+<li>always - 在所有页面中都显示</li>
+<li>hide - 在所有页面中都隐藏（可以手动展开）</li>
+</ul>
+<p>侧栏示例配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sidebar: post</span><br></pre></td></tr></table></figure>
+<h3 id="头像设置"><a href="#头像设置" class="headerlink" title="头像设置"></a>头像设置</h3><p>新增字段 avatar</p>
+<p>1 完整的互联网 URL    <a href="https://avatars1.githubusercontent.com/u/32269?v=3&amp;s=460" target="_blank" rel="noopener">https://avatars1.githubusercontent.com/u/32269?v=3&amp;s=460</a></p>
+<p>2 站点内的地址    /uploads/avatar.jpg - 需要将你的头像图片放置在 站点的 source/uploads/ （可能需要新建uploads目录）</p>
+<p>3 /images/avatar.jpg - 需要将你的头像图片放置在 主题的 source/images/ 目录下</p>
+<h3 id="作者名称"><a href="#作者名称" class="headerlink" title="作者名称"></a>作者名称</h3><p>设置 author 为你的昵称</p>
+<h3 id="站点描述设置"><a href="#站点描述设置" class="headerlink" title="站点描述设置"></a>站点描述设置</h3><p>设置 description 字段为你的站点描述。</p>
+<h3 id="添加「标签」页面"><a href="#添加「标签」页面" class="headerlink" title="添加「标签」页面"></a>添加「标签」页面</h3><p>1 定位到 Hexo 站点目录下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page tags</span><br></pre></td></tr></table></figure>
+<p>2编辑刚新建的页面，将页面的类型设置为 tags </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">title: 标签</span><br><span class="line">type: &quot;tags&quot;</span><br></pre></td></tr></table></figure>
+<p>3  添加 tags 到 menu 中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: /</span><br><span class="line">  archives: /archives</span><br><span class="line">  tags: /tags</span><br></pre></td></tr></table></figure>
+<h3 id="添加「分类」页面"><a href="#添加「分类」页面" class="headerlink" title="添加「分类」页面"></a>添加「分类」页面</h3><p>1 定位到 Hexo 站点目录下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure>
+<p>2编辑刚新建的页面，将页面的类型设置为 categories </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">title: 标签</span><br><span class="line">type: &quot;categories&quot;</span><br></pre></td></tr></table></figure>
+<p>3  添加 categories 到 menu 中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: /</span><br><span class="line">  archives: /archives</span><br><span class="line">  categories: /categories</span><br></pre></td></tr></table></figure>
+<h3 id="设置代码高亮主题"><a href="#设置代码高亮主题" class="headerlink" title="设置代码高亮主题"></a>设置代码高亮主题</h3><p>NexT 默认使用的是 白色的 normal 主题,可选的值有 normal，night， night blue， night bright， night eighties.</p>
+<p>更改 highlight_theme 字段，将其值设定成你所喜爱的高亮主题，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Code Highlight theme</span><br><span class="line"># Available value: normal | night | night eighties | night blue | night bright</span><br><span class="line"># https://github.com/chriskempson/tomorrow-theme</span><br><span class="line">highlight_theme: normal</span><br></pre></td></tr></table></figure>
+<h3 id="侧边栏社交链接"><a href="#侧边栏社交链接" class="headerlink" title="侧边栏社交链接"></a>侧边栏社交链接</h3><p>1<br>接放置在 social 字段下，一行一个链接。其键值格式是 显示文本: 链接地址。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Social links</span><br><span class="line">social:</span><br><span class="line">  GitHub: https://github.com/your-user-name</span><br><span class="line">  Twitter: https://twitter.com/your-user-name</span><br><span class="line">  微博: http://weibo.com/your-user-name</span><br><span class="line">  豆瓣: http://douban.com/people/your-user-name</span><br><span class="line">  知乎: http://www.zhihu.com/people/your-user-name</span><br><span class="line">  # 等等</span><br></pre></td></tr></table></figure>
+<p>2 设定链接的图标，对应的字段是 social_icons。其键值格式是 匹配键: Font Awesome 图标名称， 匹配键 与上一步所配置的链接的 显示文本 相同（大小写严格匹配），图标名称 是 Font Awesome 图标的名字（不必带 fa- 前缀）。 enable 选项用于控制是否显示图标，你可以设置成 false 来去掉图标。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Social Icons</span><br><span class="line">social_icons:</span><br><span class="line">  enable: true</span><br><span class="line">  # Icon Mappings</span><br><span class="line">  GitHub: github</span><br><span class="line">  Twitter: twitter</span><br><span class="line">  微博: weibo</span><br></pre></td></tr></table></figure>
+<h3 id="设置-RSS"><a href="#设置-RSS" class="headerlink" title="设置 RSS"></a>设置 RSS</h3><p>NexT 中 RSS 有三个设置选项，满足特定的使用场景。 更改 主题配置文件，设定 rss 字段的值：</p>
+<ul>
+<li>false：禁用 RSS，不在页面上显示 RSS 连接。</li>
+<li>留空：使用 Hexo 生成的 Feed 链接。 你可以需要先安装 hexo-generator-feed 插件。</li>
+<li>具体的链接地址：适用于已经烧制过 Feed 的情形。</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/21/ios/错误日志/" data-id="cja95e24u0016j24iwtnzscra" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2017/11/21/hexo/HexoNext配置主题/" data-id="cja95imic000jlf4in7bxrr7o" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cocoapods/">cocoapods</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/next/">next</a></li></ul>
 
     </footer>
   </div>
@@ -615,7 +651,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categorieën</h3>
+    <h3 class="widget-title">Categories</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/VR/">VR</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/chrome/">chrome</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/github/">github</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ios/">ios</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ios-cocoapods/">ios cocoapods</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iterm/">iterm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mac/">mac</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/python-django/">python django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/reactNative/">reactNative</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/swift/">swift</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机/">计算机</a></li></ul>
     </div>
@@ -625,7 +661,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Labels</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AVFoundation/">AVFoundation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QRCode/">QRCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SnapKit/">SnapKit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UINavigationController/">UINavigationController</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UITabBarItem/">UITabBarItem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UserDefaultstags/">UserDefaultstags</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VR/">VR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-studio/">android studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/animation/">animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cherome/">cherome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chrome/">chrome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cocoapods/">cocoapods</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/delegate/">delegate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git-osChina/">git@osChina</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/">ios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iterm/">iterm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/next/">next</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-django/">python django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reactNative/">reactNative</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sourceTree/">sourceTree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swift/">swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机/">计算机</a></li></ul>
     </div>
@@ -644,7 +680,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archieven</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li></ul>
     </div>
@@ -654,12 +690,12 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recente berichten</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
           <li>
-            <a href="/2017/11/21/reactNative/reactNative开发环境搭建/">reactNative开发环境搭建</a>
+            <a href="/2017/11/21/python/Django简介/">python Django简介</a>
           </li>
         
           <li>
