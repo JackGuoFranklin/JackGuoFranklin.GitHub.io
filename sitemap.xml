@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2017/11/21/swift/Kingfisher/</loc>
+    <loc>http://yoursite.com/2017/11/21/python/%E5%BD%93%E6%8F%90%E7%A4%BA%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8/</loc>
     
     <lastmod>2017-11-21T04:12:07.000Z</lastmod>
     
@@ -16,7 +16,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/11/21/VR/webgl%E5%92%8Cthree/</loc>
+    <loc>http://yoursite.com/2017/11/21/android/androidstudio%E5%90%AF%E5%8A%A8%E6%85%A2/</loc>
+    
+    <lastmod>2017-11-21T04:12:07.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/11/21/book/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B9%A6%E7%B1%8D%E5%B8%B8%E7%94%A8/</loc>
     
     <lastmod>2017-11-21T04:12:07.000Z</lastmod>
     
@@ -31,13 +38,6 @@
   
   <url>
     <loc>http://yoursite.com/2017/11/21/github/github%E6%8F%92%E4%BB%B61/</loc>
-    
-    <lastmod>2017-11-21T04:12:07.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/11/21/book/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B9%A6%E7%B1%8D%E5%B8%B8%E7%94%A8/</loc>
     
     <lastmod>2017-11-21T04:12:07.000Z</lastmod>
     
@@ -86,14 +86,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/11/21/ios/%E9%94%99%E8%AF%AF%E6%97%A5%E5%BF%97/</loc>
+    <loc>http://yoursite.com/2017/11/21/hexo/Hexo%E8%AF%84%E8%AE%BA%E4%B8%8E%E7%AB%99%E7%82%B9%E7%BB%9F%E8%AE%A1%E7%B3%BB%E7%BB%9F/</loc>
     
     <lastmod>2017-11-21T04:12:07.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/11/21/hexo/Hexo%E8%AF%84%E8%AE%BA%E4%B8%8E%E7%AB%99%E7%82%B9%E7%BB%9F%E8%AE%A1%E7%B3%BB%E7%BB%9F/</loc>
+    <loc>http://yoursite.com/2017/11/21/ios/%E9%94%99%E8%AF%AF%E6%97%A5%E5%BF%97/</loc>
     
     <lastmod>2017-11-21T04:12:07.000Z</lastmod>
     
@@ -135,6 +135,13 @@
   </url>
   
   <url>
+    <loc>http://yoursite.com/2017/11/21/nodejs/node.js%20%E7%89%88%E6%9C%AC%E5%8D%87%E7%BA%A7/</loc>
+    
+    <lastmod>2017-11-21T04:12:07.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/11/21/python/Django%E7%AE%80%E4%BB%8B/</loc>
     
     <lastmod>2017-11-21T04:12:07.000Z</lastmod>
@@ -142,14 +149,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/11/21/python/%E5%BD%93%E6%8F%90%E7%A4%BA%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8/</loc>
+    <loc>http://yoursite.com/2017/11/21/VR/webgl%E5%92%8Cthree/</loc>
     
     <lastmod>2017-11-21T04:12:07.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/11/21/android/androidstudio%E5%90%AF%E5%8A%A8%E6%85%A2/</loc>
+    <loc>http://yoursite.com/2017/11/21/swift/Kingfisher/</loc>
     
     <lastmod>2017-11-21T04:12:07.000Z</lastmod>
     
@@ -199,6 +206,13 @@
   
   <url>
     <loc>http://yoursite.com/2017/11/21/swift/iosQR%E4%BA%8C%E7%BB%B4%E7%A0%81/</loc>
+    
+    <lastmod>2017-11-21T04:12:07.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/11/21/swift/ios%E4%BD%BF%E7%94%A8AVFoundation%E5%AE%9E%E7%8E%B0%E6%9D%A1%E5%BD%A2%E7%A0%81%E6%89%AB%E6%8F%8F/</loc>
     
     <lastmod>2017-11-21T04:12:07.000Z</lastmod>
     
@@ -261,21 +275,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/11/21/swift/ios%E4%BD%BF%E7%94%A8AVFoundation%E5%AE%9E%E7%8E%B0%E6%9D%A1%E5%BD%A2%E7%A0%81%E6%89%AB%E6%8F%8F/</loc>
-    
-    <lastmod>2017-11-21T04:12:07.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2017/11/21/swift/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/</loc>
-    
-    <lastmod>2017-11-21T04:12:07.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/11/21/nodejs/node.js%20%E7%89%88%E6%9C%AC%E5%8D%87%E7%BA%A7/</loc>
     
     <lastmod>2017-11-21T04:12:07.000Z</lastmod>
     
