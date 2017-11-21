@@ -39,6 +39,26 @@
 
     
   <url>
+    <loc>http://yoursite.com/2017/11/21/VR/webgl%E5%92%8Cthree/</loc>
+    <lastmod>2017-11-21T04:12:07.000Z</lastmod>
+    <data>
+        <display>
+        <title>VR 书籍</title>
+        <pubTime>2017-11-21T04:12:07.000Z</pubTime>
+        
+        <tag>VR</tag>
+         
+         
+           
+             
+              <breadCrumb title="VR" url="http://yoursite.com/categories/VR/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2017/11/21/book/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B9%A6%E7%B1%8D%E5%B8%B8%E7%94%A8/</loc>
     <lastmod>2017-11-21T04:12:07.000Z</lastmod>
     <data>
@@ -52,28 +72,6 @@
            
              
               <breadCrumb title="计算机" url="http://yoursite.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2017/11/21/android/androidstudio%E5%90%AF%E5%8A%A8%E6%85%A2/</loc>
-    <lastmod>2017-11-21T04:12:07.000Z</lastmod>
-    <data>
-        <display>
-        <title>android studio启动慢</title>
-        <pubTime>2017-11-21T04:12:07.000Z</pubTime>
-        
-        <tag>android</tag>
-         
-        <tag>android studio</tag>
-         
-         
-           
-             
-              <breadCrumb title="android" url="http://yoursite.com/categories/android/"/>
           
         </display>
     </data>
@@ -435,19 +433,21 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/11/21/VR/webgl%E5%92%8Cthree/</loc>
+    <loc>http://yoursite.com/2017/11/21/android/androidstudio%E5%90%AF%E5%8A%A8%E6%85%A2/</loc>
     <lastmod>2017-11-21T04:12:07.000Z</lastmod>
     <data>
         <display>
-        <title>VR 书籍</title>
+        <title>android studio启动慢</title>
         <pubTime>2017-11-21T04:12:07.000Z</pubTime>
         
-        <tag>VR</tag>
+        <tag>android</tag>
+         
+        <tag>android studio</tag>
          
          
            
              
-              <breadCrumb title="VR" url="http://yoursite.com/categories/VR/"/>
+              <breadCrumb title="android" url="http://yoursite.com/categories/android/"/>
           
         </display>
     </data>
